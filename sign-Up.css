@@ -1,0 +1,112 @@
+*{
+    font-family: sans-serif;
+}
+.main{
+    height: 93vh;
+    width: 100%;
+    /* background-color: #f2ff0462; */
+    background: linear-gradient(120deg,rgb(255, 98, 0),yellow);
+}
+.main > h1{
+    text-align: center;
+   padding-top: 5%;
+}
+.main >h1>span{
+    color: rgb(2, 81, 172);
+}
+.contener{
+    /* border: 1px solid black; */
+    /* border-radius: 30px; */
+    height: 60%;
+    width: 50%;
+    display: flex;
+    position: absolute;
+    left: 25%;
+    /* top: auto; */
+    box-shadow: 5px 5px 5px rgb(7, 157, 105);
+    transition: box-shadow 600ms;
+   
+}
+.contener:hover{
+    box-shadow: 9px 9px 5px black;
+}
+.hero{
+    height: 100%;
+    width: 50%;
+    background-color: #36b314;
+}
+.work{
+    height: 100%;
+    width: 50%;
+    background-color: #14b39b;
+    
+}
+.core2{
+    height: auto;
+    width: 80%;
+    /* background-color: #fff; */
+    margin:20% auto;
+}
+.inp{
+    padding-left:10px ;
+    font-family:'FontAwesome' ;
+    text-transform: lowercase;
+    margin: 10px;
+    width: 80%;
+    height: 30px;
+    border-radius: 20px;
+    box-shadow: 4px 4px 5px rgb(7, 157, 105);
+    border: 0px solid transparent;
+    border-top: 1px solid black;
+}
+.lbl{
+   font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-size: medium;
+}
+button{
+    width:50% ;
+    height: 35px;
+    margin: 15px 25%;
+    cursor: pointer;
+    border-radius: 20px;
+    border: 1px solid blue;
+    color: blue;
+    font-weight: bold;
+    /* transition: background-color 600ms;
+    transition: color 500ms; */
+}
+button:hover{
+    color: #fff;
+    background-color: #121ecf98;
+    border: 1px solid transparent;
+}
+.core2 > span{
+    margin: 5px 10%;
+}
+.core2 > span >a{
+    text-decoration: none;
+    font-weight: bold;
+    color: rgb(18, 120, 203);
+}
+.core2 > span >a:hover{
+    filter: drop-shadow(2px 2px 2px black);
+    color: rgb(4, 141, 254);
+}
+.core1{
+    height: 30%;
+    width: 50%;
+    border-radius: 20%;
+    overflow: hidden;
+    margin: auto;
+    margin-top: 40%;
+    background-color: wheat;
+    border: 2px solid rgb(206, 241, 9);
+}
+
+.work >span {
+    font-size: larger;
+    font-weight: bolder;
+    position: relative;
+    top: 15%;
+    left: 30%;
+}
