@@ -20,7 +20,7 @@
 .contener{
     /* border: 1px solid black; */
     border-radius: 30px;
-    height: 60%;
+    height: 65%;
     width: 50%;
     display: flex;
     position: absolute;
@@ -56,7 +56,6 @@
 .inp{
     padding-left:10px ;
     font-family:'FontAwesome' ;
-    text-transform: lowercase;
     margin: 10px;
     width: 80%;
     height: 30px;
@@ -115,4 +114,21 @@ button:hover{
     position: relative;
     top: 15%;
     left: 30%;
+}
+.default{
+    font-family: sans-serif;
+}
+
+.condition{
+    width: 100%;
+    font-weight: bold;
+    font-size: small;
+    margin: 0;
+    font-family: serif'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+#nmspn,#emspn{
+    color: #f00;
+    font-weight: 600;
+    font-size: small;
+    margin: 0px 20px;
 }
