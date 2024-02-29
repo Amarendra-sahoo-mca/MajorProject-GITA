@@ -6,7 +6,7 @@ let msg=document.querySelector(".condition");
 let submit=document.querySelector("#submit");
 let span1=document.querySelector("#nmspn");
 let span2=document.querySelector("#emspn");
-
+let sbtn=document.querySelector(".show");
 inp1.addEventListener("keydown",()=>{
     inp1.classList.add("default");
     // console.log("xxx");
@@ -17,21 +17,27 @@ inp2.addEventListener("keydown",()=>{
      });
 inp3.addEventListener("keyup",()=>{   
 let Upass=inp3.value;
+inp3.classList.add("default");
 //check number in passward
 var num=/[0-9]/g;
 var sym= /[`!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?~]/;
 //var s=/[a-z]/g;
 if(Upass.length<8){
-    msg.innerText="sort passward";
+    msg.innerHTML="Too small passward";
+    msg.style.color="red";
 }
 else if(!Upass.match(sym)){
     msg.innerText="symbol not found";
+    msg.style.color="red";
 }
 else if(!Upass.match(num)){
     msg.innerText="number is not present";
+    msg.style.color="red";
 }
 else{
-    msg.innerText="strong passward";
+    msg.innerHTML=" &#xf058; strong passward";
+    msg.style.color="green";
+    msg.classList.add("condition2");
 }
 
 }); 
@@ -45,7 +51,7 @@ function sts(){
     let flag1=0;
     let flag2=0;
     if(inp1.value.length<1 ){
-        span1.innerText="name is empty";
+        span1.innerHTML="name is empty";
         flag1=1;
     }
     if(inp2.value.length<1){
@@ -59,3 +65,12 @@ function sts(){
         return true;
     }
 }
+sbtn.addEventListener("click",()=>{
+    // const inp3=document.querySelector(".ps");
+    if(inp3.type == "password"){
+        inp3.type = "text";
+    }
+    else{
+        inp3.type = "password";
+    }
+})
