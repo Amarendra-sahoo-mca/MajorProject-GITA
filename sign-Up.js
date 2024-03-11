@@ -21,7 +21,7 @@ inp3.classList.add("default");
 //check number in passward
 var num=/[0-9]/g;
 var sym= /[`!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?~]/;
-//var s=/[a-z]/g;
+
 if(Upass.length<8){
     msg.innerHTML="Too small passward";
     msg.style.color="red";
@@ -41,7 +41,7 @@ else{
 }
 
 }); 
-// msg.innerText="use 8 more char with mix letter, numbers and symbol"
+
 if(inp2.value.match(/^[A-Za-z\._\-0-9]*[@][A-Za-z]*[\.][a-z]{2,4}$/));{
 
 }
@@ -66,7 +66,6 @@ function sts(){
     }
 }
 sbtn.addEventListener("click",()=>{
-    // const inp3=document.querySelector(".ps");
     if(inp3.type == "password"){
         inp3.type = "text";
     }
