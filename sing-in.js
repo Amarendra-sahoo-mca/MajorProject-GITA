@@ -18,6 +18,10 @@ function sts(){
         span2.innerText="email is empty";
         flag2=1
     }
+    if(inp3.value.length<1){
+        span1.innerText="password is empty";
+        flag2=1
+    }
     if(flag1==1 || flag2==1){
         return false;
     }
