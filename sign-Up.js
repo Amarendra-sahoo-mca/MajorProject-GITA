@@ -6,7 +6,7 @@ let msg=document.querySelector(".condition");
 let submit=document.querySelector("#submit");
 let span1=document.querySelector("#nmspn");
 let span2=document.querySelector("#emspn");
-let sbtn=document.querySelector(".show");
+// let sbtn=document.querySelector(".show");
 inp1.addEventListener("keydown",()=>{
     inp1.classList.add("default");
     // console.log("xxx");
@@ -65,11 +65,11 @@ function sts(){
         return true;
     }
 }
-sbtn.addEventListener("click",()=>{
-    if(inp3.type == "password"){
-        inp3.type = "text";
-    }
-    else{
-        inp3.type = "password";
-    }
-})
+// sbtn.addEventListener("click",()=>{
+//     if(inp3.type == "password"){
+//         inp3.type = "text";
+//     }
+//     else{
+//         inp3.type = "password";
+//     }
+// })
