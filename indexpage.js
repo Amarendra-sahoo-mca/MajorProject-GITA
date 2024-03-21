@@ -29,13 +29,15 @@ sinp.addEventListener("click",(e)=>{
 menu.addEventListener("click",()=>{
     if(clicked==0){
         for(option of options){
-            option.classList.add("hide");}
+            option.classList.remove("hide");}
             clicked=1;
+            console.log("menu clicked");
     }
     else{
         for(option of options){
-            option.classList.remove("hide");}
+            option.classList.add("hide");}
             clicked=0;
+            console.log("menu un_clicked");
     }
-    console.log("menu clicked");
+  
 });
