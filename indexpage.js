@@ -1,6 +1,10 @@
 let sbtn=document.querySelector("#searchbtn");
 let sdiv=document.querySelector(".search");
+let sinp=document.querySelector(".input");
+let menu=document.querySelector(".xx");
+let options=document.querySelectorAll(".option");
 let flag=0;
+let clicked=0;
 sdiv.addEventListener("click",()=>{
     if(flag==0){
         sdiv.classList.remove("innitial");
@@ -12,9 +16,26 @@ sdiv.addEventListener("click",()=>{
     }
 console.log("div click");
 });
-sbtn.addEventListener("click",()=>{
-    if(flag==1){
+
+sbtn.addEventListener("click",(e)=>{
+     if(flag==1){
         console.log("btn click");
+        e.stopPropagation();
+     }
+});
+sinp.addEventListener("click",(e)=>{
+    e.stopPropagation();
+});
+menu.addEventListener("click",()=>{
+    if(clicked==0){
+        for(option of options){
+            option.classList.add("hide");}
+            clicked=1;
     }
-    
+    else{
+        for(option of options){
+            option.classList.remove("hide");}
+            clicked=0;
+    }
+    console.log("menu clicked");
 });

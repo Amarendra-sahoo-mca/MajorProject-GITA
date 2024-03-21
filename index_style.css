@@ -11,7 +11,6 @@ i{
     width: 100vw;
     background-color: transparent;
     justify-content: space-around;
-    
 }
 .logo{
     height: 100%;
@@ -38,10 +37,9 @@ i{
     border: 0.5px solid rgba(0, 0, 0, 0.293);
     
 }
-
 .search > button{ 
 height: 90%;
-width: 2em;
+width: 40px;
 font-size: larger;
 cursor: pointer;
 background-color: #fac802;
@@ -68,7 +66,6 @@ transition: all 0.3s linear;
 .innitial > button{
    position: relative;
    left: -38%;
-   
 }
 .options{
     height: 100%;
@@ -76,11 +73,9 @@ transition: all 0.3s linear;
     background-color: transparent;
     display: flex;
     justify-content: space-around;
-    
 }.option{
     height: 100%;
     width:auto;
-    background-color: transparent;
     display: flex;
     color: rgba(73, 11, 127, 0.085);
     transition: all 0.3s linear;
@@ -110,8 +105,7 @@ transition: all 0.3s linear;
 .l > a{
     margin-top: 10%;
 }
-.l:hover{
-    
+.l:hover{  
     background-color: #fac802;
 }
 .option > a{
@@ -119,6 +113,56 @@ transition: all 0.3s linear;
     position: relative;
     top: 20%;
 }
+.menu{
+    display: none;
+}
 h1{
     text-align: center;
+}
+@media(max-width:400px){
+    .nav{
+        width: 100vw;
+    }
+    .options{
+       display: block;
+    }
+    .option{
+        width: auto;
+        position: relative;
+        top: 40px;
+        right: -5px;
+        text-align: right;
+        margin-top: 10px;
+        justify-content: center;
+    }
+    
+    .l{
+        position: relative;
+       justify-content: center;
+        right: -80px;
+        top:30px;
+        height: 40px;
+        width: 40px;
+    }
+    .menu{
+        background-color: #f00;
+        display: flex;
+        position: absolute;
+        width: 40px;
+        height: 40px;
+        right: 10px;
+        justify-content: center;
+        
+    }
+    .menu > a{
+        margin-top: 10px;
+        height: 100%;
+    }
+    .xx{
+        background-color:transparent;
+        border: 0px solid transparent;
+    }
+    .hide{
+        display: none;
+    }
 }
