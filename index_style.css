@@ -271,6 +271,8 @@ h1{
         height: 32vh;
     }
     .Add{
+        left: 10%;
+        width: 80%;
         height: 20%;
     }
     .hide{
