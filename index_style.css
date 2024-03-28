@@ -49,6 +49,7 @@ i{
     justify-content: center;
     align-items: center;
     border-radius: 10px;
+    cursor:not-allowed;
 }
 .d{
     width: 35px;
@@ -66,7 +67,7 @@ i{
     font-size: x-large;
     font-weight: bolder;
     text-align: center;
-    border-radius:0 5px 5px 0;
+    border-radius:5px;
 
 }
 .search{
@@ -93,8 +94,8 @@ height: 90%;
 width: 40px;
 font-size: larger;
 cursor: pointer;
-background-color: rgb(12, 235, 183);
-color:rgba(73, 11, 127, 0.614);
+background-color: #994006;
+color: #fff;
 border-radius: 50%;
 border: 0px;
 transition: all 0.3s linear;
@@ -104,7 +105,7 @@ transition: all 0.3s linear;
 }
 .search > button:hover i{
     transform: rotate(48deg);
-    color:rgba(73, 11, 127);
+
 }
 
 
@@ -112,9 +113,10 @@ transition: all 0.3s linear;
     visibility:hidden;
 }
 .innitial > button{
-    background-color: #fac802;
+   background-color: #fac802;
    position: relative;
    left: -38%;
+   color:rgba(73, 11, 127);
 }
 .options{
     height: 100%;
@@ -209,36 +211,30 @@ h1{
         transform: scale(1);
     }
     .logo{
-        width:50%;
+        width:52%;
         margin-right: 5%;
+        padding: 3px;
     }
     .d{
         width: 30px;
-        height: 100%;
-        background-color: #fac802;
-        font-size: x-large;
-        font-weight: bolder;
-        text-align: center;
-        border-radius: 5px;
-        padding:4px 0 0 2px;
+        height: 30px;
+        padding:2px 0 0 2px;
     }
     .e{
         height: 30px;
         background-color: #000;
-        color: #fff;
         font-size: large;
-        font-weight: bolder;
-        text-align: center;
-        border-radius:0 5px 5px 0;
         padding-top: 4px;
     }
     .search{
-        
         width:90%;
     }
     .search > input{
         font-size: small;
     }
+    .innitial > button{
+    background-color: rgb(12, 235, 183);
+    } 
     .l{
         position: relative;
        justify-content: center;
@@ -270,6 +266,12 @@ h1{
     .xx{
         background-color:transparent;
         border: 0px solid transparent;
+    }
+    .hero{
+        height: 32vh;
+    }
+    .Add{
+        height: 20%;
     }
     .hide{
         display: none;
