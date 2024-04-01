@@ -189,9 +189,45 @@ h1{
 .ch1{
     background-color: #fac802;
     border-radius: 20px 0px 0px 20px;
+    overflow: hidden;
+
 }
 .ch2{
+    width: 50%;
     border-radius: 0px 20px 20px 0px;
+    overflow: hidden;
+}
+.slider{
+    width: 400%;
+    height: 100%;
+    background-color: #fff;
+    display: flex;
+    transition: all 0.3s linear;
+}
+.slide{
+    height: 100%;
+    width: 25%;
+
+}
+.one{
+    background-color: #d71a1a;
+}
+.two{
+    background-color: #507ee8;
+}
+.three{
+    background-color: #70cb43;
+}
+.four{
+    background-color: #e148ca;
+}
+.circle{
+    height: 80%;
+    width: 50%;
+    border-radius: 50%;
+    background-color: #fff;
+    margin:5% auto;
+    box-shadow: 5px 5px 5px blue;
 }
 @media(max-width:400px){
     .nav{
@@ -290,5 +326,10 @@ h1{
     }
     .hide{
         display: none;
+    }
+    .circle{
+        height: 60%;
+        width: 50%;
+        margin-top: 15%;
     }
 }
