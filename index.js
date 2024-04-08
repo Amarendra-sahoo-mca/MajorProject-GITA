@@ -3,10 +3,10 @@ const app=express();
 const port=8080;
 const mongose=require("mongoose");
 const path = require("path");
-// const List =require("./models/list.js");
+const fridge =require("./models/fridge.js");
 const methodoverride=require("method-override");
 const ejsMate=require("ejs-mate");
-
+ 
 
 app.set("views", path.join(__dirname,"views"));
 app.set("view engine","ejs");
@@ -23,6 +23,12 @@ main().then(()=>{
 async function main(){
     await mongose.connect('mongodb://127.0.0.1:27017/esport');
 }
+
+app.get("/esport/fridge",async(req,res)=>{
+    let datas= await fridge.find();
+    res.render("products/fridges.ejs",{datas});
+})
+
 app.listen(port,()=>{
     console.log(`listeninh at port :${port}`);
 })
