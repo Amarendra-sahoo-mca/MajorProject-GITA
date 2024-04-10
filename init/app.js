@@ -1,6 +1,6 @@
 const mongose=require("mongoose");
 const fridgeData=require("./fridgeData.js");
-const Fridge=require("../models/fridge.js");
+const Fridge=require("../models/fridgemdl.js");
 
 main().then(()=>{
     console.log("connection establish");

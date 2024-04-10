@@ -3,7 +3,7 @@ const app=express();
 const port=8080;
 const mongose=require("mongoose");
 const path = require("path");
-const fridge =require("./models/fridge.js");
+const fridge =require("./models/fridgemdl.js");
 const methodoverride=require("method-override");
 const ejsMate=require("ejs-mate");
  
