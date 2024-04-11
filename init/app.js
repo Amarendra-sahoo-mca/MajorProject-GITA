@@ -1,6 +1,8 @@
 const mongose=require("mongoose");
 const fridgeData=require("./fridgeData.js");
+const acData=require("./acData.js");
 const Fridge=require("../models/fridgemdl.js");
+const Ac=require("../models/Acmodel.js");
 
 main().then(()=>{
     console.log("connection establish");
@@ -17,4 +19,10 @@ const initDB= async ()=>{
     console.log("data was innitialize");
   }
 
-initDB();
+//initDB();
+const AcInitDB= async ()=>{
+    await  Ac.deleteMany({});
+    await Ac.insertMany(acData.data);
+    console.log("Ac data was innitialize");
+  }
+  AcInitDB();

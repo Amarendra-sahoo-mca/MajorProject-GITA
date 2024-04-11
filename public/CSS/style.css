@@ -297,6 +297,9 @@ transition: all 0.3s linear;
         background-color:transparent;
         border: 0px solid transparent;
     }
+    .hide{
+        display: none;
+    }
     .fridgeCont{
         width: 100vw;
         display: block;

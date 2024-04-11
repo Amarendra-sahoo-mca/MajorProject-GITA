@@ -44,8 +44,10 @@ if(str != ""){
 }
 });
 menu.addEventListener("click",()=>{
+    //console.log(options);
     if(clicked==0){
         for(option of options){
+            console.log(option);
             option.classList.remove("hide");}
             clicked=1;
             console.log("menu clicked");
