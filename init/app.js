@@ -1,8 +1,13 @@
 const mongose=require("mongoose");
+//data object array
 const fridgeData=require("./fridgeData.js");
 const acData=require("./acData.js");
-const Fridge=require("../models/fridgemdl.js");
-const Ac=require("../models/Acmodel.js");
+const tvData=require("./tvData.js");
+
+//models 
+const Fridge=require("../models/homeAp/fridgemdl.js");
+const Ac=require("../models/homeAp/Acmodel.js");
+const Tv=require("../models/homeAp/Tvmodel.js");
 
 main().then(()=>{
     console.log("connection establish");
@@ -25,4 +30,10 @@ const AcInitDB= async ()=>{
     await Ac.insertMany(acData.data);
     console.log("Ac data was innitialize");
   }
-  AcInitDB();
+ // AcInitDB();
+ const TvInitDB= async ()=>{
+    await  Tv.deleteMany({});
+    await  Tv.insertMany(tvData.data);
+    console.log("Tv data was innitialize");
+  }
+  TvInitDB();

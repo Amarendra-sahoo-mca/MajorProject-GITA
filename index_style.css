@@ -32,7 +32,7 @@ i{
     left: 0px;
     display: flex;
     height: 40px;
-    width: 100vw;
+    width: 100%;
     background-color: transparent;
     justify-content: space-around;
     transition: all 0.3s linear;
@@ -226,6 +226,21 @@ h1{
     background-color: #fff;
     margin:5% auto;
     box-shadow: 5px 5px 5px blue;
+}
+.catagoris{
+    width: 100%;
+    height: auto;
+    background-color: #ba8787;
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    justify-items: center;
+}
+.c{
+    height: 300px;
+    width: 200px;
+    border: 1px solid black;
+    margin-top: 20px;
+    text-align: center;
 }
 @media(max-width:400px){
     .nav{

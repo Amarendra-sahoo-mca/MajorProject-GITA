@@ -3,8 +3,9 @@ const app=express();
 const port=8080;
 const mongose=require("mongoose");
 const path = require("path");
-const fridge =require("./models/fridgemdl.js");
-const Ac=require("./models/Acmodel.js");
+const fridge =require("./models/homeAp/fridgemdl.js");
+const Ac=require("./models/homeAp/Acmodel.js");
+const Tv=require("./models/homeAp/Tvmodel.js");
 const methodoverride=require("method-override");
 const ejsMate=require("ejs-mate");
  
@@ -30,11 +31,15 @@ app.get("/esport/fridge",async(req,res)=>{
     res.render("products/lists.ejs",{datas});
 })
 //AC data RouTE
-app.get("/esport/Ac",async(req,res)=>{
+app.get("/esport/ac",async(req,res)=>{
     let datas= await Ac.find();
     res.render("products/lists.ejs",{datas});
 })
-
+//TV data RouTE
+app.get("/esport/tv",async(req,res)=>{
+    let datas= await Tv.find();
+    res.render("products/lists.ejs",{datas});
+})
 
 app.listen(port,()=>{
     console.log(`listeninh at port :${port}`);
