@@ -3,12 +3,17 @@ const app=express();
 const port=8080;
 const mongose=require("mongoose");
 const path = require("path");
+const methodoverride=require("method-override");
+const ejsMate=require("ejs-mate");
+
+//models Home
 const fridge =require("./models/homeAp/fridgemdl.js");
 const Ac=require("./models/homeAp/Acmodel.js");
 const Tv=require("./models/homeAp/Tvmodel.js");
-const methodoverride=require("method-override");
-const ejsMate=require("ejs-mate");
- 
+
+ //models Kitchen
+ const Afrier =require("./models/kitchenAp/airFrierMdl.js");
+
 
 app.set("views", path.join(__dirname,"views"));
 app.set("view engine","ejs");
@@ -25,21 +30,24 @@ main().then(()=>{
 async function main(){
     await mongose.connect('mongodb://127.0.0.1:27017/esport');
 }
+//home Appliances
 //fridge data RouTE
-app.get("/esport/fridge",async(req,res)=>{
+app.get("/esport/home/fridge",async(req,res)=>{
     let datas= await fridge.find();
     res.render("products/lists.ejs",{datas});
 })
 //AC data RouTE
-app.get("/esport/ac",async(req,res)=>{
+app.get("/esport/home/ac",async(req,res)=>{
     let datas= await Ac.find();
     res.render("products/lists.ejs",{datas});
 })
 //TV data RouTE
-app.get("/esport/tv",async(req,res)=>{
+app.get("/esport/home/tv",async(req,res)=>{
     let datas= await Tv.find();
     res.render("products/lists.ejs",{datas});
 })
+
+//kitchen Appliances
 
 app.listen(port,()=>{
     console.log(`listeninh at port :${port}`);
