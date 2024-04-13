@@ -97,47 +97,47 @@ const dwInitDB= async ()=>{
   await DishWasher.insertMany(dwData.data);
   console.log("Dish wasser data was innitialize");
 };
-dwInitDB();
+//dwInitDB();
 
-//Dish wasser data innitialize
+//electric coocker data innitialize
 const ecInitDB= async ()=>{
   await Ecockr.deleteMany({});
   await Ecockr.insertMany(eCockrData.data);
-  console.log("Dish wasser data was innitialize");
+  console.log("electric coocker data was innitialize");
 };
-//ecInitDB();
+ecInitDB();
 //grinder data innitialize
 const grInitDB= async ()=>{
   await Grinder.deleteMany({});
   await Grinder.insertMany(grindeData.data);
   console.log("grinder data was innitialize");
 };
-//grInitDB();
+grInitDB();
 //induction data innitialize
 const indInitDB= async ()=>{
   await Induction.deleteMany({});
   await Induction.insertMany(inductionData.data);
   console.log("induction data was innitialize");
 };
-//indInitDB();
+indInitDB();
 //oven data innitialize
 const ovenInitDB= async ()=>{
   await Oven.deleteMany({});
   await Oven.insertMany(ovenData.data);
   console.log("oven data was innitialize");
 };
-//ovenInitDB();
+ovenInitDB();
 //sandwich data innitialize
 const SandwichInitDB= async ()=>{
   await Sandwich.deleteMany({});
   await Sandwich.insertMany(sandwichData.data);
   console.log("sandwich data was innitialize");
 };
-//SandwichInitDB();
+SandwichInitDB();
 //Toster data innitialize
 const tosterInitDB= async ()=>{
   await Toster.deleteMany({});
   await Toster.insertMany(tosterData.data);
   console.log("Toster data was innitialize");
 };
-//tosterInitDB();
+tosterInitDB();
