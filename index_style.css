@@ -230,7 +230,7 @@ h1{
 .catagoris{
     width: 100%;
     height: auto;
-    background-color: #ba8787;
+    background-color: #F7F6BB;
     display: grid;
     grid-template-columns: repeat(3,1fr);
     justify-items: center;
