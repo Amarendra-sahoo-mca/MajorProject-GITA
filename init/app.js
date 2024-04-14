@@ -3,6 +3,9 @@ const mongose=require("mongoose");
 const fridgeData=require("./homeApD/fridgeData.js");
 const acData=require("./homeApD/acData.js");
 const tvData=require("./homeApD/tvData.js");
+const arpData=require("./homeApD/airPData.js");
+const washData=require("./homeApD/washingMData.js");
+const waterPData=require("./homeApD/waterPData.js");
 
 //data object array Kitchen
 const airFeierData=require("./kd/airfData.js");
@@ -20,6 +23,9 @@ const tosterData=require("./kd/tosterData.js");
 const Fridge=require("../models/homeAp/fridgemdl.js");
 const Ac=require("../models/homeAp/Acmodel.js");
 const Tv=require("../models/homeAp/Tvmodel.js");
+const Arp=require("../models/homeAp/AirPmdl.js");
+const Washingm=require("../models/homeAp/washingmdl.js");
+const Waterpurifier=require("../models/homeAp/Waterpmdl.js");
 
 //models Kitchen
  const Afrier =require("../models/kitchenAp/airFrierMdl.js");
@@ -68,6 +74,28 @@ const AcInitDB= async ()=>{
     console.log("Tv data was innitialize");
   };
  //TvInitDB();
+ //air purifier data innitialize
+const airpInitDB= async ()=>{
+  await  Arp.deleteMany({});
+  await  Arp.insertMany(arpData.data);
+  console.log("air purifier data was innitialize");
+};
+airpInitDBInitDB();
+
+//washing machine data innitialize
+const washInitDB= async ()=>{
+  await  Washingm.deleteMany({});
+  await  Washingm.insertMany(washData.data);
+  console.log("washing machine data was innitialize");
+};
+washInitDB();
+//water purifier data innitialize
+const wapInitDB= async ()=>{
+  await  Waterpurifier.deleteMany({});
+  await  Waterpurifier.insertMany(waterPData.data);
+  console.log("water purifier data was innitialize");
+};
+wapInitDB();
 
  //Kitchen APPLIANCES
 //airfryer data innitialize

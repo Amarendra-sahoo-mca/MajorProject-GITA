@@ -10,6 +10,9 @@ const ejsMate=require("ejs-mate");
 const fridge =require("./models/homeAp/fridgemdl.js");
 const Ac=require("./models/homeAp/Acmodel.js");
 const Tv=require("./models/homeAp/Tvmodel.js");
+const Arp=require("./models/homeAp/AirPmdl.js");
+const Washingm=require("./models/homeAp/washingmdl.js");
+const Waterpurifier=require("./models/homeAp/Waterpmdl.js");
 
  //models Kitchen
  const Afrier =require("./models/kitchenAp/airFrierMdl.js");
@@ -53,7 +56,22 @@ app.get("/esport/home/ac",async(req,res)=>{
 app.get("/esport/home/tv",async(req,res)=>{
     let datas= await Tv.find();
     res.render("products/lists.ejs",{datas});
-})
+});
+//air purifier data RouTE
+app.get("/esport/home/air_purifier",async(req,res)=>{
+    let datas= await Arp.find();
+    res.render("products/lists.ejs",{datas});
+});
+//washing machine  data RouTE
+app.get("/esport/home/washing_machine",async(req,res)=>{
+    let datas= await Washingm.find();
+    res.render("products/lists.ejs",{datas});
+});
+//water purifier data RouTE
+app.get("/esport/home/water_purifier",async(req,res)=>{
+    let datas= await Waterpurifier.find();
+    res.render("products/lists.ejs",{datas});
+});
 
 //kitchen Appliances
 //airfrier data RouTE
