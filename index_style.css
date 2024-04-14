@@ -237,7 +237,7 @@ h1{
 }
 .c{
     height: auto;
-    width: 80%;
+    width: 60%;
     border: 1px solid black;
     margin-top: 20px;
     text-align: center;
@@ -348,5 +348,8 @@ h1{
     }
     .catagoris{
         grid-template-columns: repeat(1,1fr);
+    }
+    .c{
+        width: 80%;
     }
 }
