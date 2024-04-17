@@ -26,6 +26,11 @@ const Waterpurifier=require("./models/homeAp/Waterpmdl.js");
  const Sandwich=require("./models/kitchenAp/sandwichMdl.js");
  const Oven=require("./models/kitchenAp/ovenMdl.js");
 
+//models Winter
+const Ktl=require("./models/winterAp/ktlMdl.js");
+const RoomH=require("./models/winterAp/roomHMdl.js");
+const WaterG=require("./models/winterAp/waterGMdl.js");
+
 app.set("views", path.join(__dirname,"views"));
 app.set("view engine","ejs");
 app.use(methodoverride("_method"));
@@ -124,7 +129,22 @@ app.get("/esport/kitchen/toster",async(req,res)=>{
     let datas= await Toster.find();
     res.render("products/lists.ejs",{datas});
 });
-
+//Winter Appliances
+//KTL data RouTE
+app.get("/esport/winter/kettle",async(req,res)=>{
+    let datas= await Ktl.find();
+    res.render("products/lists.ejs",{datas});
+  });
+  //room heater data RouTE
+  app.get("/esport/winter/room_heater",async(req,res)=>{
+    let datas= await RoomH.find();
+    res.render("products/lists.ejs",{datas});
+  });
+  //water Gryser data RouTE
+  app.get("/esport/winter/water_gryser",async(req,res)=>{
+    let datas= await WaterG.find();
+    res.render("products/lists.ejs",{datas});
+  });
 
 app.listen(port,()=>{
     console.log(`listeninh at port :${port}`);

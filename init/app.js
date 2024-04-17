@@ -19,6 +19,11 @@ const ovenData=require("./kd/ovenData.js");
 const sandwichData=require("./kd/sandwichData.js");
 const tosterData=require("./kd/tosterData.js");
 
+//data object array Winter Appliance
+const ktlData=require("./winterD/ktlData.js");
+const roomHData=require("./winterD/roomHData.js");
+const waterGData=require("./winterD/waterGData.js");
+
 //models Home
 const Fridge=require("../models/homeAp/fridgemdl.js");
 const Ac=require("../models/homeAp/Acmodel.js");
@@ -39,6 +44,10 @@ const Waterpurifier=require("../models/homeAp/Waterpmdl.js");
  const Sandwich=require("../models/kitchenAp/sandwichMdl.js");
  const Oven=require("../models/kitchenAp/ovenMdl.js");
 
+//models Winter
+const Ktl=require("../models/winterAp/ktlMdl.js");
+const RoomH=require("../models/winterAp/roomHMdl.js");
+const WaterG=require("../models/winterAp/waterGMdl.js");
 
 main().then(()=>{
     console.log("connection establish");
@@ -74,28 +83,27 @@ const AcInitDB= async ()=>{
     console.log("Tv data was innitialize");
   };
  //TvInitDB();
- //air purifier data innitialize
+//air purifier data innitialize
 const airpInitDB= async ()=>{
   await  Arp.deleteMany({});
   await  Arp.insertMany(arpData.data);
   console.log("air purifier data was innitialize");
 };
-airpInitDBInitDB();
-
+//airpInitDB();
 //washing machine data innitialize
 const washInitDB= async ()=>{
   await  Washingm.deleteMany({});
   await  Washingm.insertMany(washData.data);
   console.log("washing machine data was innitialize");
 };
-washInitDB();
+//washInitDB();
 //water purifier data innitialize
 const wapInitDB= async ()=>{
   await  Waterpurifier.deleteMany({});
   await  Waterpurifier.insertMany(waterPData.data);
   console.log("water purifier data was innitialize");
 };
-wapInitDB();
+//wapInitDB();
 
  //Kitchen APPLIANCES
 //airfryer data innitialize
@@ -133,39 +141,64 @@ const ecInitDB= async ()=>{
   await Ecockr.insertMany(eCockrData.data);
   console.log("electric coocker data was innitialize");
 };
-ecInitDB();
+//ecInitDB();
 //grinder data innitialize
 const grInitDB= async ()=>{
   await Grinder.deleteMany({});
   await Grinder.insertMany(grindeData.data);
   console.log("grinder data was innitialize");
 };
-grInitDB();
+//grInitDB();
 //induction data innitialize
 const indInitDB= async ()=>{
   await Induction.deleteMany({});
   await Induction.insertMany(inductionData.data);
   console.log("induction data was innitialize");
 };
-indInitDB();
+//indInitDB();
 //oven data innitialize
 const ovenInitDB= async ()=>{
   await Oven.deleteMany({});
   await Oven.insertMany(ovenData.data);
   console.log("oven data was innitialize");
 };
-ovenInitDB();
+//ovenInitDB();
 //sandwich data innitialize
 const SandwichInitDB= async ()=>{
   await Sandwich.deleteMany({});
   await Sandwich.insertMany(sandwichData.data);
   console.log("sandwich data was innitialize");
 };
-SandwichInitDB();
+//SandwichInitDB();
 //Toster data innitialize
 const tosterInitDB= async ()=>{
   await Toster.deleteMany({});
   await Toster.insertMany(tosterData.data);
   console.log("Toster data was innitialize");
 };
-tosterInitDB();
+//tosterInitDB();
+
+ //WINTER APPLIANCES
+//ktl data innitialize
+async function ktlInitDB(){
+  await  Ktl.deleteMany({});
+  await  Ktl.insertMany(ktlData.data);
+  console.log("ktl data was innitialize");
+};
+ktlInitDB();
+
+//Room Hitter data innitialize
+async function roomhInitDB(){
+  await RoomH.deleteMany({});
+  await RoomH.insertMany(roomHData.data);
+  console.log("Room Hitter was innitialize");
+};
+roomhInitDB();
+
+//Water gryser data innitialize
+async function WaterGInitDB(){
+  await WaterG.deleteMany({});
+  await WaterG.insertMany(waterGData.data);
+  console.log("Water gryser was innitialize");
+};
+WaterGInitDB();
