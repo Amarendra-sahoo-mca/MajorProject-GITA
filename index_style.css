@@ -230,7 +230,7 @@ h1{
 .catagoris{
     width: 100%;
     height: auto;
-    background-color: #F7F6BB;
+    background-color: transparent;
     display: grid;
     grid-template-columns: repeat(3,1fr);
     justify-items: center;
@@ -241,7 +241,49 @@ h1{
     border: 1px solid black;
     margin-top: 20px;
     text-align: center;
+    background-color:#F7F6BB;
+    border-radius: 10px;
 }
+.profileImg{
+    width: 95%;
+    position: relative;
+    transition: all 300ms linear;
+}
+.c:hover .profileImg{
+    display: none;
+}
+.c:hover .items{
+    display:grid;
+}
+.items{
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    justify-items: center;
+    display: none;
+}
+.items > a{
+    text-decoration: none;
+}
+.card{
+    width:100px ;
+    height: 60px;
+    border: 1px solid #114232;
+    margin-bottom: 10px; 
+    display: grid;
+    place-items: center;
+    box-sizing: border-box;
+    border-radius: 30%;
+    font-weight: 900;
+    color: #114232;
+    transition: all 300ms linear;
+}
+.card:hover{
+    background-color:#87A922;
+    border: 1px solid transparent;
+}
+
+/* .c
+} */
 @media(max-width:400px){
     .nav{
         width: 100vw;

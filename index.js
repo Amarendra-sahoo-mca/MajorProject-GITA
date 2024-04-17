@@ -141,7 +141,7 @@ app.get("/esport/winter/kettle",async(req,res)=>{
     res.render("products/lists.ejs",{datas});
   });
   //water Gryser data RouTE
-  app.get("/esport/winter/water_gryser",async(req,res)=>{
+  app.get("/esport/winter/water_geyser",async(req,res)=>{
     let datas= await WaterG.find();
     res.render("products/lists.ejs",{datas});
   });

@@ -1,0 +1,23 @@
+<% layout("/layouts/boilerplate") %> 
+
+<body>
+    
+    <div class="fridgeCont">
+        <%for(data of datas){%>
+            <div class="fridgeCard">
+                <div class="images">
+                <div class="imageslider">
+                    <img src=<%=data.image1%> alt="image1">
+                    <img src=<%=data.image2%> alt="image2">
+                    <img src=<%=data.image3%> alt="image3">
+                </div></div> <br> <br>
+                <h2><%=data.name%></h2>
+                
+                <div class="text"><p> <br>
+                   <span class="price"> <b>&#8377; <%=data.price.toLocaleString("en-IN")%></b></span>
+                    
+                </p></div>
+            </div>
+        <%}%>
+    </div>
+</body>
