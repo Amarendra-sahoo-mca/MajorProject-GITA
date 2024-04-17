@@ -6,6 +6,10 @@ const path = require("path");
 const methodoverride=require("method-override");
 const ejsMate=require("ejs-mate");
 
+//cart model
+const Cart=require("./models/cartMdl.js");
+
+
 //models Home
 const fridge =require("./models/homeAp/fridgemdl.js");
 const Ac=require("./models/homeAp/Acmodel.js");
@@ -31,6 +35,9 @@ const Ktl=require("./models/winterAp/ktlMdl.js");
 const RoomH=require("./models/winterAp/roomHMdl.js");
 const WaterG=require("./models/winterAp/waterGMdl.js");
 
+//model arr
+let models=[fridge,Ac,Tv,Arp,Washingm,Waterpurifier,Afrier,Chimney,CoffeeMkr,DishWasher,Ecockr,Grinder,Induction,Toster,Sandwich,Oven,Ktl,RoomH,WaterG];
+
 app.set("views", path.join(__dirname,"views"));
 app.set("view engine","ejs");
 app.use(methodoverride("_method"));
@@ -46,6 +53,29 @@ main().then(()=>{
 async function main(){
     await mongose.connect('mongodb://127.0.0.1:27017/esport');
 }
+let cartdata;
+//add to cart route
+app.get("/esport/:id/cart", async (req,res)=>{
+    let {id}=req.params;
+    for(model of models){
+        console.log(model);
+        var data=await model.findById(id); 
+        if(data!=null){
+            break;
+        }  
+    }
+    let cart1=new Cart({
+        name:data.name,
+        image:data.image1,
+        price:data.price,
+    });
+    let resut=await cart1.save();
+    console.log("added to cart sucessfully");
+});
+app.get("/esport/cart",async(req,res)=>{
+    let datas=await Cart.find();
+    res.render("products/cart.ejs",{datas});
+})
 //home Appliances
 //fridge data RouTE
 app.get("/esport/home/fridge",async(req,res)=>{
