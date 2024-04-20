@@ -1,0 +1,30 @@
+<% layout("/layouts/boilerplate") %> 
+<body>
+    
+    <div class="profileCont">
+        <div class="profileImage">
+            <div class="imagesrl">
+            <img src="<%=data.image1%>" alt="image1">
+            <img src="<%=data.image2%>" alt="image2">
+            <img src="<%=data.image3%>" alt="image3">
+        </div>
+        </div>
+        <div class="profiletText">
+            <h2><%=data.name%></h2>
+            <br><br>
+            <h4><%=data.info%></h4>
+            <br><br>
+            <h5><%=data.description%></h5> 
+            <br><br>
+            <span class="price"><span class="discount">&#8377; 99,999</span><br> <br> <b>&#8377; <%=data.price.toLocaleString("en-IN")%></b></span> <br><br><br>
+            <div class="bottons profilebtn">
+                <form method="get" action="/esport/<%=data._id%>/cart">
+                    <button class="remove">ADD TO CART</button>
+                </form>
+                <form method="post" action="#">
+                    <button class="remove buy">BUY NOW</button>
+                </form>
+                 </div>
+        </div>
+    </div>
+</body>

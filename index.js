@@ -35,8 +35,14 @@ const Ktl=require("./models/winterAp/ktlMdl.js");
 const RoomH=require("./models/winterAp/roomHMdl.js");
 const WaterG=require("./models/winterAp/waterGMdl.js");
 
+//model Smart Gadget
+const Laptop= require("./models/smartGadget/laptopMdl.js");
+const WCharger= require("./models/smartGadget/wChargerMdl.js");
+const Printer= require("./models/smartGadget/printerMdl.js");
+const PowerBank= require("./models/smartGadget/powerbankMdl.js");
+
 //model arr
-let models=[fridge,Ac,Tv,Arp,Washingm,Waterpurifier,Afrier,Chimney,CoffeeMkr,DishWasher,Ecockr,Grinder,Induction,Toster,Sandwich,Oven,Ktl,RoomH,WaterG];
+let models=[fridge,Ac,Tv,Arp,Washingm,Waterpurifier,Afrier,Chimney,CoffeeMkr,DishWasher,Ecockr,Grinder,Induction,Toster,Sandwich,Oven,Ktl,RoomH,WaterG,Laptop,WCharger,Printer,PowerBank];
 
 app.set("views", path.join(__dirname,"views"));
 app.set("view engine","ejs");
@@ -53,12 +59,10 @@ main().then(()=>{
 async function main(){
     await mongose.connect('mongodb://127.0.0.1:27017/esport');
 }
-let cartdata;
 //add to cart route
 app.get("/esport/:id/cart", async (req,res)=>{
     let {id}=req.params;
     for(model of models){
-        console.log(model);
         var data=await model.findById(id); 
         if(data!=null){
             break;
@@ -66,15 +70,36 @@ app.get("/esport/:id/cart", async (req,res)=>{
     }
     let cart1=new Cart({
         name:data.name,
+        info:data.info,
         image:data.image1,
         price:data.price,
     });
-    let resut=await cart1.save();
-    console.log("added to cart sucessfully");
+    let result=await cart1.save();
+    console.log(result+"added to cart sucessfully");
+    res.redirect("/esport/cart");
 });
 app.get("/esport/cart",async(req,res)=>{
     let datas=await Cart.find();
     res.render("products/cart.ejs",{datas});
+})
+//romove from cart route
+app.delete("/esport/:id", async(req,res)=>{
+    let {id}=req.params;
+    await Cart.deleteOne({_id:id});
+    console.log("deleted from cart sucessfully");
+    res.redirect("/esport/cart");
+});
+//product profile Route
+app.get("/esport/profile/:id",async (req,res)=>{
+    let {id}=req.params;
+    for(model of models){
+        
+        var data=await model.findById(id); 
+        if(data!=null){
+            break;
+        }  
+    }
+    res.render("products/profile.ejs", {data});
 })
 //home Appliances
 //fridge data RouTE
@@ -173,6 +198,28 @@ app.get("/esport/winter/kettle",async(req,res)=>{
   //water Gryser data RouTE
   app.get("/esport/winter/water_geyser",async(req,res)=>{
     let datas= await WaterG.find();
+    res.render("products/lists.ejs",{datas});
+  });
+
+//SMART gadget
+//Laptop data RouTE
+app.get("/esport/smartg/laptop",async(req,res)=>{
+    let datas= await Laptop.find();
+    res.render("products/lists.ejs",{datas});
+  });
+  //Wairless data RouTE
+  app.get("/esport/smartg/wireless_charger",async(req,res)=>{
+    let datas= await WCharger.find();
+    res.render("products/lists.ejs",{datas});
+  });
+  //printer data RouTE
+  app.get("/esport/smartg/printer",async(req,res)=>{
+    let datas= await Printer.find();
+    res.render("products/lists.ejs",{datas});
+  });
+  //power bank data RouTE
+  app.get("/esport/smartg/powerbank",async(req,res)=>{
+    let datas= await PowerBank.find();
     res.render("products/lists.ejs",{datas});
   });
 

@@ -3,14 +3,25 @@
     <%for(data of datas){%>
         <div class="cartCard">
             <div class="cartimg">
-                <img src=<%=data.image%> alt="image">
+                <img  src="<%=data.image%>" alt="image">
             </div> 
             
-            <div class="text">
+            <div class="cartText">
                 <h2><%=data.name%></h2>
-                <p> <br>
-               <span class="price"> <b>&#8377; <%=data.price.toLocaleString("en-IN")%></b></span>
-            </p></div>
+                <br> <br> 
+                <h4><%=data.info%></h4>
+                <p> <br> <br>
+               <span class="price"><span class="discount">&#8377; 99,999</span><br> <br> <b>&#8377; <%=data.price.toLocaleString("en-IN")%></b></span>
+            </p><br>
+            <div class="bottons">
+            <form method="post" action="/esport/<%=data._id%>?_method=DELETE">
+                <button class="remove">REMOVE</button>
+            </form>
+            <form method="post" action="#">
+                <button class="remove buy">BUY NOW</button>
+            </form>
+             </div>
+        </div>
         </div>
     <%}%>
 </body>

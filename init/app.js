@@ -24,6 +24,12 @@ const ktlData=require("./winterD/ktlData.js");
 const roomHData=require("./winterD/roomHData.js");
 const waterGData=require("./winterD/waterGData.js");
 
+//data object array Smart Gadget
+const laptopData=require("./smartGD/laptopData.js");
+const wChargerData=require("./smartGD/wChargerData.js");
+const printerData=require("./smartGD/printerData.js");
+const powerBankData=require("./smartGD/powerBankData.js");
+
 //models Home
 const Fridge=require("../models/homeAp/fridgemdl.js");
 const Ac=require("../models/homeAp/Acmodel.js");
@@ -48,6 +54,12 @@ const Waterpurifier=require("../models/homeAp/Waterpmdl.js");
 const Ktl=require("../models/winterAp/ktlMdl.js");
 const RoomH=require("../models/winterAp/roomHMdl.js");
 const WaterG=require("../models/winterAp/waterGMdl.js");
+
+//model Smart Gadget
+const Laptop= require("../models/smartGadget/laptopMdl.js");
+const WCharger= require("../models/smartGadget/wChargerMdl.js");
+const Printer= require("../models/smartGadget/printerMdl.js");
+const PowerBank= require("../models/smartGadget/powerbankMdl.js");
 
 main().then(()=>{
     console.log("connection establish");
@@ -185,7 +197,7 @@ async function ktlInitDB(){
   await  Ktl.insertMany(ktlData.data);
   console.log("ktl data was innitialize");
 };
-ktlInitDB();
+//ktlInitDB();
 
 //Room Hitter data innitialize
 async function roomhInitDB(){
@@ -193,7 +205,7 @@ async function roomhInitDB(){
   await RoomH.insertMany(roomHData.data);
   console.log("Room Hitter was innitialize");
 };
-roomhInitDB();
+//roomhInitDB();
 
 //Water gryser data innitialize
 async function WaterGInitDB(){
@@ -201,4 +213,34 @@ async function WaterGInitDB(){
   await WaterG.insertMany(waterGData.data);
   console.log("Water gryser was innitialize");
 };
-WaterGInitDB();
+//WaterGInitDB();
+ //SMART GADGET
+//Laptop data innitialize
+async function laptopInitDB(){
+  await  Laptop.deleteMany({});
+  await  Laptop.insertMany(laptopData.data);
+  console.log("Laptop data was innitialize");
+};
+//laptopInitDB();
+//wareless charger data innitialize
+async function wcInitDB(){
+  await  WCharger.deleteMany({});
+  await  WCharger.insertMany(wChargerData.data);
+  console.log("wareless charger data was innitialize");
+};
+//wcInitDB();
+//Printer data innitialize
+async function printerInitDB(){
+  await  Printer.deleteMany({});
+  await  Printer.insertMany(printerData.data);
+  console.log("Printer data was innitialize");
+};
+//printerInitDB();
+//Power bank data innitialize
+async function pbInitDB(){
+  await  PowerBank.deleteMany({});
+  await  PowerBank.insertMany(powerBankData.data);
+  console.log("Power bank data was innitialize");
+};
+//pbInitDB();
+
