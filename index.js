@@ -40,9 +40,15 @@ const Laptop= require("./models/smartGadget/laptopMdl.js");
 const WCharger= require("./models/smartGadget/wChargerMdl.js");
 const Printer= require("./models/smartGadget/printerMdl.js");
 const PowerBank= require("./models/smartGadget/powerbankMdl.js");
+const Camera= require("./models/smartGadget/cameraMdl.js");
+const Computer= require("./models/smartGadget/computerMdl.js");
+const Earbod= require("./models/smartGadget/earbodMdl.js");
+const Mobile= require("./models/smartGadget/mobileMdl.js");
+const NeckBand= require("./models/smartGadget/neckbandMdl.js");
+const SmartW= require("./models/smartGadget/smartWMdl.js");
 
 //model arr
-let models=[fridge,Ac,Tv,Arp,Washingm,Waterpurifier,Afrier,Chimney,CoffeeMkr,DishWasher,Ecockr,Grinder,Induction,Toster,Sandwich,Oven,Ktl,RoomH,WaterG,Laptop,WCharger,Printer,PowerBank];
+let models=[fridge,Ac,Tv,Arp,Washingm,Waterpurifier,Afrier,Chimney,CoffeeMkr,DishWasher,Ecockr,Grinder,Induction,Toster,Sandwich,Oven,Ktl,RoomH,WaterG,Laptop,WCharger,Printer,PowerBank,Camera,Computer,Earbod,Mobile,NeckBand,SmartW];
 
 app.set("views", path.join(__dirname,"views"));
 app.set("view engine","ejs");
@@ -220,6 +226,36 @@ app.get("/esport/smartg/laptop",async(req,res)=>{
   //power bank data RouTE
   app.get("/esport/smartg/powerbank",async(req,res)=>{
     let datas= await PowerBank.find();
+    res.render("products/lists.ejs",{datas});
+  });
+ //camera data RouTE
+ app.get("/esport/smartg/camera",async(req,res)=>{
+    let datas= await Camera.find();
+    res.render("products/lists.ejs",{datas});
+  });
+//computer data RouTE
+app.get("/esport/smartg/computer",async(req,res)=>{
+    let datas= await Computer.find();
+    res.render("products/lists.ejs",{datas});
+  });
+//earbud data RouTE
+app.get("/esport/smartg/earbud",async(req,res)=>{
+    let datas= await Earbod.find();
+    res.render("products/lists.ejs",{datas});
+  });
+//mobile data RouTE
+app.get("/esport/smartg/mobile",async(req,res)=>{
+    let datas= await Mobile.find();
+    res.render("products/lists.ejs",{datas});
+  });
+//neckband data RouTE
+app.get("/esport/smartg/neckband",async(req,res)=>{
+    let datas= await NeckBand.find();
+    res.render("products/lists.ejs",{datas});
+  });
+//smart_watch data RouTE
+app.get("/esport/smartg/smart_watch",async(req,res)=>{
+    let datas= await SmartW.find();
     res.render("products/lists.ejs",{datas});
   });
 

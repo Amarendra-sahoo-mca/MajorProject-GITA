@@ -29,6 +29,13 @@ const laptopData=require("./smartGD/laptopData.js");
 const wChargerData=require("./smartGD/wChargerData.js");
 const printerData=require("./smartGD/printerData.js");
 const powerBankData=require("./smartGD/powerBankData.js");
+const cameraData=require("./smartGD/cameraData.js");
+const computerData=require("./smartGD/computerData.js");
+const earbudData=require("./smartGD/earbudData.js");
+const mobileData=require("./smartGD/mobileData.js");
+const neckbandData=require("./smartGD/neckbandData.js");
+const smartwatchData=require("./smartGD/smartwatchData.js");
+
 
 //models Home
 const Fridge=require("../models/homeAp/fridgemdl.js");
@@ -60,6 +67,12 @@ const Laptop= require("../models/smartGadget/laptopMdl.js");
 const WCharger= require("../models/smartGadget/wChargerMdl.js");
 const Printer= require("../models/smartGadget/printerMdl.js");
 const PowerBank= require("../models/smartGadget/powerbankMdl.js");
+const Camera= require("../models/smartGadget/cameraMdl.js");
+const Computer= require("../models/smartGadget/computerMdl.js");
+const Earbod= require("../models/smartGadget/earbodMdl.js");
+const Mobile= require("../models/smartGadget/mobileMdl.js");
+const NeckBand= require("../models/smartGadget/neckbandMdl.js");
+const SmartW= require("../models/smartGadget/smartWMdl.js");
 
 main().then(()=>{
     console.log("connection establish");
@@ -214,6 +227,7 @@ async function WaterGInitDB(){
   console.log("Water gryser was innitialize");
 };
 //WaterGInitDB();
+
  //SMART GADGET
 //Laptop data innitialize
 async function laptopInitDB(){
@@ -243,4 +257,45 @@ async function pbInitDB(){
   console.log("Power bank data was innitialize");
 };
 //pbInitDB();
-
+//camera data innitialize
+async function cmrInitDB(){
+  await  Camera.deleteMany({});
+  await  Camera.insertMany(cameraData.data);
+  console.log("camera data was innitialize");
+};
+//cmrInitDB();
+//Computer data innitialize
+async function cmpInitDB(){
+  await  Computer.deleteMany({});
+  await  Computer.insertMany(computerData.data);
+  console.log("computer data was innitialize");
+};
+//cmpInitDB();
+//earbud data innitialize
+async function ebInitDB(){
+  await  Earbod.deleteMany({});
+  await  Earbod.insertMany(earbudData.data);
+  console.log("earbud data was innitialize");
+};
+//ebInitDB();
+//mobile data innitialize
+async function mobInitDB(){
+  await  Mobile.deleteMany({});
+  await  Mobile.insertMany(mobileData.data);
+  console.log("mobile data was innitialize");
+};
+//mobInitDB();
+//neckBand data innitialize
+async function nbInitDB(){
+  await  NeckBand.deleteMany({});
+  await  NeckBand.insertMany(neckbandData.data);
+  console.log("neckBand data was innitialize");
+};
+//nbInitDB();
+//smart watch data innitialize
+async function swInitDB(){
+  await  SmartW.deleteMany({});
+  await  SmartW.insertMany(smartwatchData.data);
+  console.log("smart watch data was innitialize");
+};
+//swInitDB();
