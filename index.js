@@ -106,7 +106,12 @@ app.get("/esport/profile/:id",async (req,res)=>{
         }  
     }
     res.render("products/profile.ejs", {data});
+});
+//Home page route
+app.get("/esport/home",(erq,res)=>{
+    res.render("products/home.ejs");
 })
+
 //home Appliances
 //fridge data RouTE
 app.get("/esport/home/fridge",async(req,res)=>{

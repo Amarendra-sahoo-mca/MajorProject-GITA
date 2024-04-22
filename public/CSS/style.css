@@ -47,6 +47,7 @@
     height: 100%;
 }
 .text{
+    height: auto;
     background-color: #fff;
     font-size: 15px;
 }
@@ -296,12 +297,301 @@ transition: all 0.3s linear;
     width: 60%;
     height: 100%;
 }
+*{  
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+i{
+    font-family: 'FontAwesome';
+}
+.hero{
+    display: flex;
+    width: 100%;
+    height: 50vh;
+    background-color: #000;
+}
+.left{
+    height: 100%;
+    width: 50%;
 
+    background-color: #007F73;
+}
+.right{
+   
+    height: 100%;
+    width: 50%;
+    background-color: #FFC700;
+    
+}
+.nav{
+    margin: 10px 0 0 0;
+    position: absolute;
+    left: 0px;
+    display: flex;
+    height: 40px;
+    width: 100%;
+    background-color: transparent;
+    justify-content: space-around;
+    transition: all 0.3s linear;
+}
+.logo{
+    display: flex;
+    height: 100%;
+    width:120px;
+    background-color: black;
+    justify-content: center;
+    align-items: center;
+    border-radius:  9px;
+    cursor:not-allowed;
+    transition: all 500ms ease-in;
+}
+
+.e{
+    width: 35px;
+    height: 35px;
+    background-color: #fac802;
+    font-size: x-large;
+    font-weight: bolder;
+    text-align: center;
+    border-radius: 5px;
+    padding:2px 0 0 2px;
+}.s{
+    height: 80%;
+    background-color: #000;
+    color: #fff;
+    font-size: x-large;
+    font-weight: bolder;
+    text-align: center;
+    border-radius:5px;
+
+}
+.search{
+    position: relative;
+    left: 100px;
+    height: 100%;
+    width:300px;
+    background-color: transparent;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+   
+}
+.search > input{
+   border-radius: 10px;
+    width: 70%;
+    height: 90%;
+    font-size:large;
+    background-color: #b4dce5;
+    border: 0.5px solid rgba(0, 0, 0, 0.293);
+    
+}
+.search > button{ 
+
+height: 90%;
+width: 40px;
+font-size: larger;
+cursor: pointer;
+background-color: #994006;
+color: #fff;
+border-radius: 50%;
+border: 0px;
+transition: all 0.3s linear;
+}
+.search > button > i{
+    transition: all 0.3s linear;
+}
+.search > button:hover i{
+    transform: rotate(48deg);
+
+}
+
+.innitial{
+    position: relative;
+    left: 100px;
+}
+.innitial > input{
+    visibility:hidden;
+}
+.innitial > button{
+   background-color: #fac802;
+   position: relative;
+   left: 0px;
+   color:rgba(73, 11, 127);
+}
+.options{
+    height: 100%;
+    width:35%;
+    background-color: transparent;
+    display: flex;
+    justify-content: space-around;
+}.option{
+    height: 100%;
+    width:auto;
+    display: flex;
+    color: rgba(73, 11, 127, 0.085);
+    transition: all 0.3s linear;
+    border-radius: 10px;
+    text-align: right;
+}
+.option > a{
+    transition: all 0.3s linear;
+}
+.option:hover{
+    background-color: #4CCD99;
+    transform: scale(1.3);
+}
+.option:hover a{
+   
+    color: rgba(73, 11, 127);
+}
+
+.l{
+    color: rgba(73, 11, 127, 0.085);
+    width:40px;
+    display: flex;
+    justify-content: center;
+    transition: all 0.3s linear;
+    border-radius: 50%;
+    cursor: pointer;
+}
+.l > a{
+    margin-top: 10%;
+}
+.l:hover{  
+    background-color: #4CCD99;
+}
+.option > a{
+    text-decoration: none;
+    position: relative;
+    top: 20%;
+}
+.menu{
+    display: none;
+}
+h1{
+    text-align: center;
+}
+.Add{
+    position: absolute;
+    left: 15%;
+    top: 10%;
+    width: 70%;
+    height: 35%;
+    display: flex;
+    z-index: 0;
+}
+.ch1{
+    background-color: #fac802;
+    border-radius: 20px 0px 0px 20px;
+    overflow: hidden;
+
+}
+.ch2{
+    width: 50%;
+    border-radius: 0px 20px 20px 0px;
+    overflow: hidden;
+}
+.slider{
+    width: 400%;
+    height: 100%;
+    background-color: #fff;
+    display: flex;
+    transition: all 0.3s linear;
+}
+.slide{
+    height: 100%;
+    width: 25%;
+
+}
+.one{
+    background-color: #d71a1a;
+}
+.two{
+    background-color: #507ee8;
+}
+.three{
+    background-color: #70cb43;
+}
+.four{
+    background-color: #e148ca;
+}
+.circle{
+    height: 200px;
+    width: 200px;
+    border-radius: 50%;
+    background-color: #fff;
+    margin:5% auto;
+    box-shadow: 5px 5px 5px blue;
+}
+.catagoris{
+    width: 100%;
+    height: auto;
+    background-color: transparent;
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    justify-items: center;
+}
+.c{
+    height: auto;
+    width: 60%;
+    border: 1px solid black;
+    margin-top: 20px;
+    text-align: center;
+    background-color:#F7F6BB;
+    border-radius: 10px;
+    transition: all 300ms linear;
+}
+.profileImg{
+    width: 100%;
+    position: relative;
+    margin-top: 5px;
+    transition: all 300ms linear;
+}
+.c:hover{
+    transform: scale(1.1);
+}
+.c:hover .profileImg{
+    display: none;
+}
+.c:hover .items{
+    display:grid;
+    grid-template-columns: repeat(2,1fr);
+    justify-items: center;
+}
+.items{
+    display: none;
+    transition: all 300ms linear;
+}
+.items > a{
+    text-decoration: none;
+}
+.card{
+    width:100px ;
+    height: 60px;
+    border: 1px solid #114232;
+    margin-bottom: 10px; 
+    display: grid;
+    place-items: center;
+    box-sizing: border-box;
+    border-radius: 30%;
+    font-weight: 900;
+    color: #114232;
+    transition: all 300ms linear;
+}
+.card:hover{
+    background-color:#87A922;
+    border: 1px solid transparent;
+}
+
+/* .c
+} */
 @media(max-width:400px){
     .nav{
         width: 100vw;
         justify-content: space-between;
-        margin-bottom: 10px;
     }
     .options{
        display: block;
@@ -357,7 +647,7 @@ transition: all 0.3s linear;
     .l{
         position: relative;
        justify-content: center;
-        right:-55%;
+       right:-55%;
         top:30px;
         height: 40px;
         width: 40px;
@@ -386,8 +676,27 @@ transition: all 0.3s linear;
         background-color:transparent;
         border: 0px solid transparent;
     }
+    .hero{
+        height: 32vh;
+    }
+    .Add{
+        left: 10%;
+        width: 80%;
+        height: 20%;
+    }
     .hide{
         display: none;
+    }
+    .circle{
+        height: 90px;
+        width:  90px;
+        margin-top: 12px;
+    }
+    .catagoris{
+        grid-template-columns: repeat(1,1fr);
+    }
+    .c{
+        width: 80%;
     }
     .fridgeCont{
         width: 100vw;

@@ -243,23 +243,28 @@ h1{
     text-align: center;
     background-color:#F7F6BB;
     border-radius: 10px;
+    transition: all 300ms linear;
 }
 .profileImg{
     width: 100%;
     position: relative;
     margin-top: 5px;
+    transition: all 300ms linear;
+}
+.c:hover{
+    transform: scale(1.1);
 }
 .c:hover .profileImg{
     display: none;
 }
 .c:hover .items{
     display:grid;
-}
-.items{
-    display: grid;
     grid-template-columns: repeat(2,1fr);
     justify-items: center;
+}
+.items{
     display: none;
+    transition: all 300ms linear;
 }
 .items > a{
     text-decoration: none;
