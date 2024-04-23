@@ -4,6 +4,174 @@
     margin: 0;
     box-sizing: border-box;
 }
+footer{
+    margin-top: 30px;
+    width: 100%;
+    bottom: 0;
+    background: linear-gradient(to right, #114232, #87a922);
+    color: #fff;
+    padding:  100px 0 30px;
+    border-radius: 126px 20px 20px 0px;
+    font-size: 15px;
+    line-height: 22px;
+}
+.row{
+    width: 85%;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+}
+ .col{
+ /* background-color: black; */
+   
+} 
+.col h3{
+    width: fit-content;
+    margin-bottom: 40px;
+    position: relative;
+}
+ ul li{
+    list-style: none;
+    
+ }
+ ul li a{
+    text-decoration: none;
+ }
+ 
+ .social-icons{
+    /* background-color: #d41d1d; */
+    margin-left: 80%;
+    height: 30px;
+ }
+ .social-icons > i{
+
+    margin-left: 9px;
+    cursor: pointer;
+ }
+ .social-icons > i:hover{
+    transform: scale(1.5);
+ }
+
+ hr{
+    width: 90%;
+    border: 0;
+    border-bottom: 1px solid #ccc;
+    margin: 20px auto;
+ }
+ .copyright{
+    text-align: center;
+ }
+ .underline{
+    width: 100%;
+    height: 5px;
+    background:#c18181 ;
+    border-radius: 3px;
+    position: absolute;
+    top: 25px;
+    left: 0;
+ }
+ .underline span{
+    width: 15px;
+    height: 100%;
+    background: #efdbea;
+    border-radius: 3px;
+    position: absolute;
+    top: 0;
+    left: 10px;
+    overflow: hidden;
+    animation: moving 2s linear infinite;
+ }
+ @keyframes moving{
+    0%{
+        left: -20%;
+    }
+    100%{
+        left: 100%;
+    }
+ }
+ 
+ .containner{
+    display: flex;
+    width: 80%;
+    /* background-color: #c62d2d; */
+    justify-content: space-between;
+
+ }
+ .container h3{
+    text-decoration: underline solid white;
+ }
+ .shoping {
+    display: flex;
+    margin-top: 20px;
+    margin-left: 50px;
+ }
+ .icon{
+    margin-top: 10px;
+    font-size: 30px;
+    margin-right: 7px;
+    transition: all 300ms linear;
+    animation: movings 1.5s linear infinite alternate;
+    position: relative;
+ }
+
+ @keyframes movings{
+    0%{
+        left: -20%;
+    }
+    100%{
+        left: 2%;
+    }
+ }
+ .icons{
+    margin-top: 10px;
+    font-size: 30px;
+    margin-right: 7px;
+     animation: aaa 1.5s linear infinite alternate-reverse;
+ }
+ @keyframes aaa{
+    0%{
+        rotate: 0deg;
+    }
+    50%{
+        rotate: 180deg;
+     }
+    /* 100%{
+        rotate: 360deg;
+    } */ 
+ }
+
+ .return{
+    margin-left: 15px;
+    display: flex;
+    margin-top: 20px;
+ }
+ .authentic{
+    margin-left: 15px;
+    display: flex;
+    margin-top: 20px;
+
+ }
+ .iconss{
+    margin-top: 10px;
+    font-size: 30px;
+    margin-right: 7px; 
+    animation: bbb 1.5s linear infinite alternate;
+ }
+ @keyframes bbb {
+    0%{
+        scale: 50%;
+    }
+    100%{
+        scale: 150%;
+}
+}
+
+
+
+
+
+
+
 .fridgeCont{
     height: auto;
     width: 98vw;
@@ -237,6 +405,27 @@ transition: all 0.3s linear;
 }
 .money{
     visibility: hidden;
+}
+.cartdetls{
+    
+    height: 100px;
+    width: 50%;
+    margin: auto;
+    border: 1px dotted black;
+    border-radius: 8px;
+}
+.total,.dcharge{
+    width: 100%;
+    background-color: #ff0;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+}
+.inp{
+    width: 80px;
+    border: 0px;
+    text-align: right;
+    
 }
 .discount{
     opacity: 0.8;
