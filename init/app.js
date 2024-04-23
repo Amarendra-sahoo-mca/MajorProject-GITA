@@ -270,7 +270,7 @@ async function cmpInitDB(){
   await  Computer.insertMany(computerData.data);
   console.log("computer data was innitialize");
 };
-//cmpInitDB();
+cmpInitDB();
 //earbud data innitialize
 async function ebInitDB(){
   await  Earbod.deleteMany({});

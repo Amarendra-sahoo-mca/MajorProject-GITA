@@ -1,5 +1,5 @@
 *{
-    font-family: sans-serif;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     padding: 0;
     margin: 0;
     box-sizing: border-box;
@@ -235,6 +235,9 @@ transition: all 0.3s linear;
     height: auto;
     width: 50%;
 }
+.money{
+    visibility: hidden;
+}
 .discount{
     opacity: 0.8;
     text-decoration: line-through;
@@ -296,12 +299,6 @@ transition: all 0.3s linear;
 .profiletText{
     width: 60%;
     height: 100%;
-}
-*{  
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 i{
     font-family: 'FontAwesome';
@@ -523,7 +520,7 @@ h1{
     width: 200px;
     border-radius: 50%;
     background-color: #fff;
-    margin:5% auto;
+    margin:3% auto;
     box-shadow: 5px 5px 5px blue;
 }
 .catagoris{

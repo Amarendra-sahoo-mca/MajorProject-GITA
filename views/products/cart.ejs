@@ -1,5 +1,6 @@
 <% layout("/layouts/boilerplate") %> 
 <body>
+    
     <%for(data of datas){%>
         <div class="cartCard">
             <div class="cartimg">
@@ -11,8 +12,11 @@
                 <br> <br> 
                 <h4><%=data.info%></h4>
                 <p> <br> <br>
-               <span class="price"><span class="discount">&#8377; 99,999</span><br> <br> <b>&#8377; <%=data.price.toLocaleString("en-IN")%></b></span>
+               <span class="price"><span class="discount">&#8377; 99,999</span><br><b>&#8377; <%=data.price.toLocaleString("en-IN")%></b></span>
             </p><br>
+            <div class="quantity">
+                Qty: <input class="Qty" type="number" value="1" style="width: 50px;" pattern="[0-9]"> <button class="set">set</button></div>
+                <div class="money"><input type="number" class="amount" value="<%=data.price%>"></div>
             <div class="bottons">
             <form method="post" action="/esport/<%=data._id%>?_method=DELETE">
                 <button class="remove">REMOVE</button>
@@ -24,4 +28,5 @@
         </div>
         </div>
     <%}%>
+    
 </body>
