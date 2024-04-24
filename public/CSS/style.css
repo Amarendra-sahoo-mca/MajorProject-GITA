@@ -20,12 +20,8 @@ footer{
     margin: auto;
     display: flex;
     justify-content: space-between;
-}
- .col{
- /* background-color: black; */
-   
 } 
-.col h3{
+.col >h3{
     width: fit-content;
     margin-bottom: 40px;
     position: relative;
