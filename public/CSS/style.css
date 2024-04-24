@@ -234,7 +234,6 @@ footer{
     border-bottom: 1px solid rgb(153, 152, 152);
 }
 .nav{
-   
     position: relative;
     left: 0px;
     display: flex;
@@ -475,15 +474,30 @@ transition: all 0.3s linear;
 .profileImage{
     width: 500px;
     height: 500px;
-    overflow: hidden;
+    overflow-x: scroll;
+    overflow-y: hidden;
+    display: flex;
+    scroll-snap-type: x mandatory;
+}
+.profileImage::-webkit-scrollbar{
+    width: 0;
 }
 .imagesrl{
-    height: 1500px;
-    width: 500px;
+    margin-right:10px ;
+    scroll-snap-align: start;
 }
 .imagesrl > img{
     width: 500px;
-    height: 500px;
+    height: 500px;  
+}
+.popup{
+    height: 300px;
+    width: 500px;
+    position: absolute;
+    top: 40%;
+    left: 35%;
+    background-color: #c61f1f;
+    border-radius: 20px;
 }
 .profiletText{
     width: 60%;
