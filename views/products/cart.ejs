@@ -4,7 +4,7 @@
     <%for(data of datas){%>
         <div class="cartCard">
             <div class="cartimg">
-                <img  src="<%=data.image%>" alt="image">
+                <img  src="<%=data.image1%>" alt="image">
             </div> 
             
             <div class="cartText">
@@ -21,7 +21,7 @@
             <form method="post" action="/esport/<%=data._id%>?_method=DELETE">
                 <button class="remove">REMOVE</button>
             </form>
-            <form method="post" action="#">
+            <form method="get" action="/esport/<%=data._id%>/buyNow">
                 <button class="remove buy">BUY NOW</button>
             </form>
              </div>

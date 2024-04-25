@@ -4,6 +4,9 @@
     box-sizing: border-box;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
+body::-webkit-scrollbar{
+    width: 0;
+}
 footer{
     margin-top: 30px;
     width: 100%;

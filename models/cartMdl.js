@@ -8,7 +8,7 @@ let cartSchema= new mongoose.Schema({
         type:String,
         required:true
     },
-    image:{
+    image1:{
         type:String,
         required:true,
     },

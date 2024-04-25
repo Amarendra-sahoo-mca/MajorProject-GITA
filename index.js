@@ -8,7 +8,8 @@ const ejsMate=require("ejs-mate");
 
 //cart model
 const Cart=require("./models/cartMdl.js");
-
+//address model
+const Address=require("./models/addressMdl.js");
 
 //models Home
 const fridge =require("./models/homeAp/fridgemdl.js");
@@ -53,7 +54,7 @@ const TableFan= require("./models/summersp/tblfan.js");
 const CillFan= require("./models/summersp/cillfan.js");
 
 //model arr
-let models=[fridge,Ac,Tv,Arp,Washingm,Waterpurifier,Afrier,Chimney,CoffeeMkr,DishWasher,Ecockr,Grinder,Induction,Toster,Sandwich,Oven,Ktl,RoomH,WaterG,Laptop,WCharger,Printer,PowerBank,Camera,Computer,Earbod,Mobile,NeckBand,SmartW,AirCooler,TableFan,CillFan];
+let models=[Cart,fridge,Ac,Tv,Arp,Washingm,Waterpurifier,Afrier,Chimney,CoffeeMkr,DishWasher,Ecockr,Grinder,Induction,Toster,Sandwich,Oven,Ktl,RoomH,WaterG,Laptop,WCharger,Printer,PowerBank,Camera,Computer,Earbod,Mobile,NeckBand,SmartW,AirCooler,TableFan,CillFan];
 
 app.set("views", path.join(__dirname,"views"));
 app.set("view engine","ejs");
@@ -70,6 +71,22 @@ main().then(()=>{
 async function main(){
     await mongose.connect('mongodb://127.0.0.1:27017/esport');
 }
+
+//add new address
+app.post("/esport/addnewaddress", async(req,res)=>{
+    let {name,phone,pin,state,city,house,landmark} =req.body;
+    let newAddress= new Address({
+        name: name,
+        phone: phone,
+        pincode: pin,
+        state: state,
+        city:city,
+        house:house,
+        area: landmark
+    });
+    await newAddress.save();
+    console.log("address saved sucessfully");
+})
 //add to cart route
 app.get("/esport/:id/cart", async (req,res)=>{
     let {id}=req.params;
@@ -82,7 +99,7 @@ app.get("/esport/:id/cart", async (req,res)=>{
     let cart1=new Cart({
         name:data.name,
         info:data.info,
-        image:data.image1,
+        image1:data.image1,
         price:data.price,
     });
     let result=await cart1.save();
@@ -115,6 +132,18 @@ app.get("/esport/profile/:id",async (req,res)=>{
 app.get("/esport/home",(erq,res)=>{
     res.render("products/home.ejs");
 })
+//BUY NOW ROUTE 
+app.get("/esport/:id/buyNow", async (req,res)=>{
+    let {id}=req.params;
+    for(model of models){
+        var data=await model.findById(id); 
+        if(data!=null){
+            break;
+        }  
+    }
+    let address= await Address.find();
+    res.render("products/buynow.ejs",{data,address});
+});
 
 //home Appliances
 //fridge data RouTE

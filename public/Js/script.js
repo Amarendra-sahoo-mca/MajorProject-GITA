@@ -9,6 +9,8 @@ let close=document.querySelector("#close");
 let adtocart=document.querySelector("#adtocart");
 let img=document.querySelector(".imag");
 let text=document.querySelector(".tex");
+let addnew=document.querySelector(".addnew");
+let form=document.querySelector(".form");
 
 
 let n=0;
@@ -17,6 +19,9 @@ let cartprice=0;
 let camount=0;
 Number(camount);
 
+addnew.addEventListener("click",()=>{
+        form.classList.remove("pophide");
+    })
 setInterval(()=>{
 
     text.style.transform = `translateX(-${n*25}%)`;
