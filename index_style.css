@@ -21,10 +21,12 @@ footer{
     display: flex;
     justify-content: space-between;
 }
- .col{
- /* background-color: black; */
-   
-} 
+.circle > img{
+    width: 100%;
+    height: 100%;
+    margin: auto;
+    border-radius: 10px;
+}
 .col h3{
     width: fit-content;
     margin-bottom: 40px;
@@ -182,15 +184,12 @@ i{
 .left{
     height: 100%;
     width: 50%;
-
     background-color: #007F73;
 }
 .right{
-   
     height: 100%;
     width: 50%;
     background-color: #FFC700;
-    
 }
 .nav{
     margin: 10px 0 0 0;
@@ -232,7 +231,6 @@ i{
     font-weight: bolder;
     text-align: center;
     border-radius:5px;
-
 }
 .search{
     position: relative;
@@ -244,7 +242,6 @@ i{
     justify-content: center;
     align-items: center;
     cursor: pointer;
-   
 }
 .search > input{
    border-radius: 10px;
@@ -253,10 +250,8 @@ i{
     font-size:large;
     background-color: #b4dce5;
     border: 0.5px solid rgba(0, 0, 0, 0.293);
-    
 }
 .search > button{ 
-
 height: 90%;
 width: 40px;
 font-size: larger;
@@ -272,7 +267,6 @@ transition: all 0.3s linear;
 }
 .search > button:hover i{
     transform: rotate(48deg);
-
 }
 
 .innitial{
@@ -354,7 +348,6 @@ h1{
     background-color: #fac802;
     border-radius: 20px 0px 0px 20px;
     overflow: hidden;
-
 }
 .ch2{
     width: 50%;
@@ -371,7 +364,21 @@ h1{
 .slide{
     height: 100%;
     width: 25%;
-
+}
+.slide > h2{
+    margin-top: 10px;
+    font-size: 30px;
+}
+.slide > p{
+    margin-top: 6%;
+    margin-left:25%;
+    font-size: 70px;
+    font-weight: bolder;
+}
+.slide > h3{
+    margin-top: 2%;
+    font-size: 30px;
+    margin-left:80%;
 }
 .one{
     background-color: #d71a1a;
@@ -388,11 +395,12 @@ h1{
 .circle{
     height: 200px;
     width: 200px;
-    border-radius: 50%;
+    border-radius: 15px;
     background-color: #fff;
     margin:5% auto;
     box-shadow: 5px 5px 5px blue;
 }
+
 .catagoris{
     width: 100%;
     height: auto;

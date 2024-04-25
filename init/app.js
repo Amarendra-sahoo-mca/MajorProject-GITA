@@ -36,6 +36,10 @@ const mobileData=require("./smartGD/mobileData.js");
 const neckbandData=require("./smartGD/neckbandData.js");
 const smartwatchData=require("./smartGD/smartwatchData.js");
 
+//data object array Summer special
+const cillfanData=require("./summerApD/cillfanData.js");
+const tableFanData=require("./summerApD/tablefanData.js");
+const airCoolerData=require("./summerApD/aircolerData.js");
 
 //models Home
 const Fridge=require("../models/homeAp/fridgemdl.js");
@@ -73,6 +77,11 @@ const Earbod= require("../models/smartGadget/earbodMdl.js");
 const Mobile= require("../models/smartGadget/mobileMdl.js");
 const NeckBand= require("../models/smartGadget/neckbandMdl.js");
 const SmartW= require("../models/smartGadget/smartWMdl.js");
+
+//model summer
+const AirCooler= require("../models/summersp/airCoolerMdl.js");
+const TableFan= require("../models/summersp/tblfan.js");
+const CillFan= require("../models/summersp/cillfan.js");
 
 main().then(()=>{
     console.log("connection establish");
@@ -270,7 +279,7 @@ async function cmpInitDB(){
   await  Computer.insertMany(computerData.data);
   console.log("computer data was innitialize");
 };
-cmpInitDB();
+//cmpInitDB();
 //earbud data innitialize
 async function ebInitDB(){
   await  Earbod.deleteMany({});
@@ -299,3 +308,26 @@ async function swInitDB(){
   console.log("smart watch data was innitialize");
 };
 //swInitDB();
+
+//SUMMER SPECIAL
+//aircooler data innitialize
+async function ACinit(){
+  await  AirCooler.deleteMany({});
+  await AirCooler.insertMany(airCoolerData.data);
+  console.log("aircooler data was innitialize");
+};
+//ACinit();
+//cilling fan data innitialize
+async function cilfaninit(){
+  await  CillFan.deleteMany({});
+  await  CillFan.insertMany(cillfanData.data);
+  console.log("cilling fan data was innitialize");
+};
+//cilfaninit();
+//table fan data innitialize
+async function tablefaninit(){
+  await  TableFan.deleteMany({});
+  await  TableFan.insertMany(tableFanData.data);
+  console.log("table fan data was innitialize");
+};
+//tablefaninit();

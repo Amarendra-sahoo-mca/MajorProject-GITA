@@ -47,8 +47,13 @@ const Mobile= require("./models/smartGadget/mobileMdl.js");
 const NeckBand= require("./models/smartGadget/neckbandMdl.js");
 const SmartW= require("./models/smartGadget/smartWMdl.js");
 
+//model summer
+const AirCooler= require("./models/summersp/airCoolerMdl.js");
+const TableFan= require("./models/summersp/tblfan.js");
+const CillFan= require("./models/summersp/cillfan.js");
+
 //model arr
-let models=[fridge,Ac,Tv,Arp,Washingm,Waterpurifier,Afrier,Chimney,CoffeeMkr,DishWasher,Ecockr,Grinder,Induction,Toster,Sandwich,Oven,Ktl,RoomH,WaterG,Laptop,WCharger,Printer,PowerBank,Camera,Computer,Earbod,Mobile,NeckBand,SmartW];
+let models=[fridge,Ac,Tv,Arp,Washingm,Waterpurifier,Afrier,Chimney,CoffeeMkr,DishWasher,Ecockr,Grinder,Induction,Toster,Sandwich,Oven,Ktl,RoomH,WaterG,Laptop,WCharger,Printer,PowerBank,Camera,Computer,Earbod,Mobile,NeckBand,SmartW,AirCooler,TableFan,CillFan];
 
 app.set("views", path.join(__dirname,"views"));
 app.set("view engine","ejs");
@@ -81,8 +86,7 @@ app.get("/esport/:id/cart", async (req,res)=>{
         price:data.price,
     });
     let result=await cart1.save();
-    console.log(result+"added to cart sucessfully");
-    res.redirect("/esport/cart");
+    console.log("added to cart sucessfully");
 });
 app.get("/esport/cart",async(req,res)=>{
     let datas=await Cart.find();
@@ -261,6 +265,23 @@ app.get("/esport/smartg/neckband",async(req,res)=>{
 //smart_watch data RouTE
 app.get("/esport/smartg/smart_watch",async(req,res)=>{
     let datas= await SmartW.find();
+    res.render("products/lists.ejs",{datas});
+  });
+
+//summer special
+//tablefan data RouTE
+app.get("/esport/summer/tablefan",async(req,res)=>{
+    let datas= await TableFan.find();
+    res.render("products/lists.ejs",{datas});
+  });
+  //cillingfan data RouTE
+  app.get("/esport/summer/cillingfan",async(req,res)=>{
+    let datas= await CillFan.find();
+    res.render("products/lists.ejs",{datas});
+  });
+  //aircooler data RouTE
+  app.get("/esport/summer/aircooler",async(req,res)=>{
+    let datas= await AirCooler.find();
     res.render("products/lists.ejs",{datas});
   });
 

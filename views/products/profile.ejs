@@ -21,7 +21,7 @@
             <span class="price"><span class="discount">&#8377; 99,999</span><br> <br> <b>&#8377; <%=data.price.toLocaleString("en-IN")%></b></span> <br><br><br>
             <div class="bottons profilebtn">
                 <form method="get" action="/esport/<%=data._id%>/cart">
-                    <button class="remove">ADD TO CART</button>
+                    <button class="remove" id="adtocart">ADD TO CART</button>
                 </form>
                 <form method="post" action="#">
                     <button class="remove buy">BUY NOW</button>
@@ -29,9 +29,10 @@
                  </div>
         </div>
     </div>
-    <div class="popup">
-        <img src="../popup/tick mark.jpg" alt="">
-        <h4 class="popmsg">Item added to cart sucesfully</h4>
-        <button>close</button>
+    <div class="pophide  xxx">
+        <img src="https://github.com/Amarendra-sahoo-mca/MajorProject-GITA/blob/main/images/popup/tick%20mark.jpg?raw=true" alt=""> 
+        <h4 class="popmsg">Item added to cart successfully</h4> <br>
+        <p>continue shopping</p> <br>
+        <button id="close">close</button>
     </div>
 </body>
