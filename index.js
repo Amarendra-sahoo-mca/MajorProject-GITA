@@ -71,9 +71,10 @@ main().then(()=>{
 async function main(){
     await mongose.connect('mongodb://127.0.0.1:27017/esport');
 }
-
+var selected_address=null;
 //add new address
-app.post("/esport/addnewaddress", async(req,res)=>{
+app.post("/esport/addnewaddress/:id", async(req,res)=>{
+    let {id}=req.params;
     let {name,phone,pin,state,city,house,landmark} =req.body;
     let newAddress= new Address({
         name: name,
@@ -86,6 +87,16 @@ app.post("/esport/addnewaddress", async(req,res)=>{
     });
     await newAddress.save();
     console.log("address saved sucessfully");
+    let redir="/esport/"+id+"/buyNow";
+   res.redirect(redir);
+})
+//address chosen route
+app.post("/chosen/address", async (req,res)=>{
+    let {addres1}=req.body;
+    let id=addres1;
+    let data= await Address.findOne({_id:id});
+    selected_address=data;
+    console.log(selected_address);
 })
 //add to cart route
 app.get("/esport/:id/cart", async (req,res)=>{
@@ -144,6 +155,23 @@ app.get("/esport/:id/buyNow", async (req,res)=>{
     let address= await Address.find();
     res.render("products/buynow.ejs",{data,address});
 });
+//payment route
+app.post("/orders/payments", async(req,res)=>{
+    let {quantity,pid}=req.body;
+    for(model of models){
+        var data=await model.findById(pid); 
+        if(data!=null){
+            break;
+        }  
+    }
+    if(selected_address==null){
+        res.render("products/err.ejs");
+    }
+    else{
+        res.render("products/payments.ejs",{data,quantity,selected_address});
+    }
+   
+})
 
 //home Appliances
 //fridge data RouTE

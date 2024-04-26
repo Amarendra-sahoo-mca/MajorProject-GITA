@@ -2,14 +2,16 @@
 <body>
     <div class="address">
         <h3>Select your Address</h3> <br>
+        <form action="/chosen/address" method="post">
         <%for(adrs of address){%>
-            <input type="radio" name="address1" id="address1">
-            <label for="address1"><%=adrs.name%>,<%=adrs.phone%><br><%=adrs.pincode%>,<%=adrs.state%>,<%=adrs.city%></label>
+            <input type="radio" name="addres1" id="address1" value="<%=adrs._id%>">
+            <label for="address1"><%=adrs.name%>,<%=adrs.phone%><br><%=adrs.pincode%>,<%=adrs.state%>,<%=adrs.city%></label> <br><br>
         <%}%>
-           
-        <br><button  class="addnew">+ Add New</button>
+        <button  class="select">Select</button>
+    </form>
+           <button  class="addnew">+ Add New</button>
         <div class="form pophide xxx">
-            <form method="POST" action="/esport/addnewaddress">
+            <form method="POST" action="/esport/addnewaddress/<%=data._id%>">
                 <h2>Add Delivery Address</h2>
             <input type="text" class="inpp" name="name" placeholder="Full Name(Requird)"> <br>
             <input type="number" class="inpp" name="phone" placeholder="Phone number(Requird)"> <br>
@@ -21,11 +23,11 @@
             <button id="save">Save address</button></form>
         </div>
     </div>
+    
     <div class="cartCard">
         <div class="cartimg">
             <img  src="<%=data.image1%>" alt="image">
         </div> 
-        
         <div class="cartText">
             <h2><%=data.name%></h2>
             <br> <br> 
@@ -33,17 +35,16 @@
             <p> <br> <br>
            <span class="price"><span class="discount">&#8377; 99,999</span><br><b>&#8377; <%=data.price.toLocaleString("en-IN")%></b></span>
         </p><br>
+        <form action="/orders/payments" method="post">
         <div class="quantity">
-            Qty: <input class="Qty" type="number" value="1" style="width: 50px;" pattern="[0-9]"> <button class="set">&#10003;</button></div>
-            <div class="money"><input type="number" class="amount" value="<%=data.price%>"></div>
+            Qty: <input class="Qty" type="number" name="quantity" value="1" style="width: 50px;" pattern="[0-9]"> <button class="set">&#10003;</button></div>
+            <div class="money"><input type="text" name="pid" class="amount" value="<%=data._id%>"></div>
             <div class="bottons">
-                <form method="post" action="#">
-                    <button class="remove buy next">Next</button>
-                </form>
-                 </div>
-    
+                    <button type="submit" class="remove buy next">Next</button>
+                 </div></form>
     </div>
     </div>
+
     <div class="cartdetls">
         <div class="total"><span>Price</span><span>&#8377;<input type="text" class="inp" disabled value="1222"></span></div>
         <div class="dcharge"><span>Delivery</span><span style="color: green;">FREE Delivery</span></div>

@@ -1,0 +1,27 @@
+<% layout("/layouts/boilerplate") %> 
+<body>
+    <h1>payments page</h1>
+    <div class="address">
+        <%=selected_address.name%>,<%=selected_address.phone%><br><%=selected_address.pincode%>,<%=selected_address.state%>,<%=selected_address.city%>
+    </div>
+    <div class="cartCard">
+        <div class="cartimg">
+            <img  src="<%=data.image1%>" alt="image">
+        </div> 
+        <div class="cartText">
+            <h2><%=data.name%></h2>
+            <br> <br> 
+            <h4><%=data.info%></h4>
+            <p> <br> <br>
+           <span class="price"><span class="discount">&#8377; 99,999</span><br><b>&#8377; <%=data.price.toLocaleString("en-IN")%></b></span>
+        </p><br>
+        <form action="/orders/payments" method="post">
+        <div class="quantity">
+           <h5> Qty:  <%=quantity%></h5> 
+        </div>
+            <div class="money">
+                <input type="text" name="pid" class="amount" value="<%=data._id%>">
+            </div>
+    </div>
+    </div>
+</body>
