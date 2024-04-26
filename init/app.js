@@ -41,6 +41,11 @@ const cillfanData=require("./summerApD/cillfanData.js");
 const tableFanData=require("./summerApD/tablefanData.js");
 const airCoolerData=require("./summerApD/aircolerData.js");
 
+//data object array Summer special
+const florelampData=require("./decorativeD/florlampData.js");
+const jhumarData=require("./decorativeD/jhumarData.js");
+const walllampData=require("./decorativeD/walllampData.js");
+
 //models Home
 const Fridge=require("../models/homeAp/fridgemdl.js");
 const Ac=require("../models/homeAp/Acmodel.js");
@@ -82,6 +87,11 @@ const SmartW= require("../models/smartGadget/smartWMdl.js");
 const AirCooler= require("../models/summersp/airCoolerMdl.js");
 const TableFan= require("../models/summersp/tblfan.js");
 const CillFan= require("../models/summersp/cillfan.js");
+
+//model decorative
+const FloreLamp= require("../models/decorative/florlampMdl.js");
+const Jhumar= require("../models/decorative/jhumarMdl.js");
+const Walllamp= require("../models/decorative/wallampMdl.js");
 
 main().then(()=>{
     console.log("connection establish");
@@ -331,3 +341,26 @@ async function tablefaninit(){
   console.log("table fan data was innitialize");
 };
 //tablefaninit();
+
+//DECORATIVE
+//florelamp data innitialize
+async function flinit(){
+  await  FloreLamp.deleteMany({});
+  await FloreLamp.insertMany(florelampData.data);
+  console.log("florelamp data was innitialize");
+};
+//flinit();
+//jhumar data innitialize
+async function jmrinit(){
+  await  Jhumar.deleteMany({});
+  await Jhumar.insertMany(jhumarData.data);
+  console.log("jhumar data was innitialize");
+};
+//jmrinit();
+//wallLamp data innitialize
+async function wlmpinit(){
+  await  Walllamp.deleteMany({});
+  await Walllamp.insertMany(walllampData.data);
+  console.log("wallLamp data was innitialize");
+};
+//wlmpinit();

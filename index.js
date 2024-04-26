@@ -53,8 +53,13 @@ const AirCooler= require("./models/summersp/airCoolerMdl.js");
 const TableFan= require("./models/summersp/tblfan.js");
 const CillFan= require("./models/summersp/cillfan.js");
 
+//model decorative
+const FloreLamp= require("./models/decorative/florlampMdl.js");
+const Jhumar= require("./models/decorative/jhumarMdl.js");
+const Walllamp= require("./models/decorative/wallampMdl.js");
+
 //model arr
-let models=[Cart,fridge,Ac,Tv,Arp,Washingm,Waterpurifier,Afrier,Chimney,CoffeeMkr,DishWasher,Ecockr,Grinder,Induction,Toster,Sandwich,Oven,Ktl,RoomH,WaterG,Laptop,WCharger,Printer,PowerBank,Camera,Computer,Earbod,Mobile,NeckBand,SmartW,AirCooler,TableFan,CillFan];
+let models=[Cart,fridge,Ac,Tv,Arp,Washingm,Waterpurifier,Afrier,Chimney,CoffeeMkr,DishWasher,Ecockr,Grinder,Induction,Toster,Sandwich,Oven,Ktl,RoomH,WaterG,Laptop,WCharger,Printer,PowerBank,Camera,Computer,Earbod,Mobile,NeckBand,SmartW,AirCooler,TableFan,CillFan,FloreLamp,Jhumar,Walllamp];
 
 app.set("views", path.join(__dirname,"views"));
 app.set("view engine","ejs");
@@ -174,7 +179,9 @@ app.post("/orders/payments", async(req,res)=>{
         res.render("products/err.ejs",{pid});
     }
     else{
-        res.render("products/payments.ejs",{data,quantity,selected_address});
+        let address=selected_address;
+        selected_address=null;
+        res.render("products/payments.ejs",{data,quantity,address});
     }
    
 })
@@ -351,3 +358,19 @@ app.get("/esport/summer/tablefan",async(req,res)=>{
 app.listen(port,()=>{
     console.log(`listeninh at port :${port}`);
 })
+//decorative
+//florelamp data RouTE
+app.get("/esport/decorative/florelamp",async(req,res)=>{
+    let datas= await FloreLamp.find();
+    res.render("products/lists.ejs",{datas});
+  });
+  //walllamp data RouTE
+  app.get("/esport/decorative/walllamp",async(req,res)=>{
+    let datas= await Walllamp.find();
+    res.render("products/lists.ejs",{datas});
+  });
+  //jhumar data RouTE
+  app.get("/esport/decorative/jhumar",async(req,res)=>{
+    let datas= await Jhumar.find();
+    res.render("products/lists.ejs",{datas});
+  });

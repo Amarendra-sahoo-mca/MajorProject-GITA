@@ -1,8 +1,8 @@
 <% layout("/layouts/boilerplate") %> 
 <body>
-    <h1>payments page</h1>
+    
     <div class="address" id="adrs">
-       <div class="location"><i  class="fa-solid fa-location-dot loc" ></i></div> <div class="ads"> <%=selected_address.name%>,<%=selected_address.phone%><br><%=selected_address.pincode%>,<%=selected_address.state%>,<%=selected_address.city%></div>
+       <div class="location"><i  class="fa-solid fa-location-dot loc" ></i></div> <div class="ads"> <%=address.name%>,<%=address.phone%><br><%=address.pincode%>,<%=address.state%>,<%=address.city%></div>
     </div>
     <div class="cartCard">
         <div class="cartimg">
