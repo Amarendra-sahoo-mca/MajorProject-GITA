@@ -96,7 +96,7 @@ app.post("/chosen/address", async (req,res)=>{
     let id=addres1;
     let data= await Address.findOne({_id:id});
     selected_address=data;
-    console.log(selected_address);
+    
 })
 //add to cart route
 app.get("/esport/:id/cart", async (req,res)=>{
@@ -155,6 +155,12 @@ app.get("/esport/:id/buyNow", async (req,res)=>{
     let address= await Address.find();
     res.render("products/buynow.ejs",{data,address});
 });
+//after err buy now route
+app.get("/esport/:id/err/buyNow",  (req,res)=>{
+    let {id}=req.params;
+    let pat="/esport/"+id+"/buyNow";
+    res.redirect(pat);
+})
 //payment route
 app.post("/orders/payments", async(req,res)=>{
     let {quantity,pid}=req.body;
@@ -165,7 +171,7 @@ app.post("/orders/payments", async(req,res)=>{
         }  
     }
     if(selected_address==null){
-        res.render("products/err.ejs");
+        res.render("products/err.ejs",{pid});
     }
     else{
         res.render("products/payments.ejs",{data,quantity,selected_address});

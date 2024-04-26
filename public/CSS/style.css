@@ -44,6 +44,11 @@ footer{
     background-color: #0f0;
     border-radius: 50%;
  }
+ #set{
+    position: relative;
+    top: 20px;
+    left: 90px;
+ }
  .social-icons{
     /* background-color: #d41d1d; */
     margin-left: 80%;
@@ -551,7 +556,7 @@ transition: all 0.3s linear;
     width: 32%;
     margin-top: 10px;
 }
-.popup > button{
+.popup,.pop > button{
     width: 20%;
     height: 1.9rem;
     border-radius: 20px;
@@ -577,7 +582,26 @@ i{
     height: auto;
     margin:15px auto;
     border-radius: 15px;
-    padding-left: 15px;
+    padding-left: 15px;    
+}
+#adrs{
+    width: 30%;
+    display: flex;
+    justify-content: center;
+    
+}
+.location{
+    height: inherit;
+    width: 30px;
+    margin-top: 10px;
+}
+.loc{
+    font-size: 35px;
+    color: #10ec05;
+}
+.ads{
+    margin-top: 10px;
+    margin-bottom: 10px;
 }
 
 .form{

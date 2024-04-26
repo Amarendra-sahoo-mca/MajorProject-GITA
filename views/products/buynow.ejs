@@ -35,9 +35,10 @@
             <p> <br> <br>
            <span class="price"><span class="discount">&#8377; 99,999</span><br><b>&#8377; <%=data.price.toLocaleString("en-IN")%></b></span>
         </p><br>
+        <button class="set" id="set">&#10003;</button>
         <form action="/orders/payments" method="post">
         <div class="quantity">
-            Qty: <input class="Qty" type="number" name="quantity" value="1" style="width: 50px;" pattern="[0-9]"> <button class="set">&#10003;</button></div>
+            Qty: <input class="Qty" type="number" name="quantity" value="1" style="width: 50px;" pattern="[0-9]"> </div>
             <div class="money"><input type="text" name="pid" class="amount" value="<%=data._id%>"></div>
             <div class="bottons">
                     <button type="submit" class="remove buy next">Next</button>
@@ -45,9 +46,9 @@
     </div>
     </div>
 
-    <div class="cartdetls">
+    <!-- <div class="cartdetls">
         <div class="total"><span>Price</span><span>&#8377;<input type="text" class="inp" disabled value="1222"></span></div>
         <div class="dcharge"><span>Delivery</span><span style="color: green;">FREE Delivery</span></div>
         <div class="total"><span>Total</span><span>&#8377;<input type="text" class="inp" disabled value="1222"></span></div>
-    </div>
+    </div> -->
 </body>
