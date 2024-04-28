@@ -10,6 +10,8 @@ const ejsMate=require("ejs-mate");
 const Cart=require("./models/cartMdl.js");
 //address model
 const Address=require("./models/addressMdl.js");
+//order model
+const Order=require("./models/ordersMdl.js");
 
 //models Home
 const fridge =require("./models/homeAp/fridgemdl.js");
@@ -77,6 +79,7 @@ async function main(){
     await mongose.connect('mongodb://127.0.0.1:27017/esport');
 }
 var selected_address=null;
+var Ordersaddress ;
 //add new address
 app.post("/esport/addnewaddress/:id", async(req,res)=>{
     let {id}=req.params;
@@ -166,15 +169,33 @@ app.get("/esport/:id/err/buyNow",  (req,res)=>{
     let pat="/esport/"+id+"/buyNow";
     res.redirect(pat);
 })
+
+//payment opction select route
+app.post("/payment/option",(req,res)=>{
+    let {poption}=req.body;
+    if(poption == "cash"){
+        res.render("products/sucessfull.ejs")
+    }
+    else if(poption == "qr"){
+        res.render("products/qrpayment.ejs")
+    }
+})
+var orderid;
+var orderQty;
+var orderPaymentId;
 //payment route
 app.post("/orders/payments", async(req,res)=>{
     let {quantity,pid}=req.body;
+    orderQty=quantity;
+    orderid=pid;
+    //console.log(typeof(quantity));
     for(model of models){
         var data=await model.findById(pid); 
         if(data!=null){
             break;
         }  
     }
+    Ordersaddress=selected_address;
     if(selected_address==null){
         res.render("products/err.ejs",{pid});
     }
@@ -185,7 +206,33 @@ app.post("/orders/payments", async(req,res)=>{
     }
    
 })
-
+//payment sucessfull route
+app.post("/payment_sucessfull",(req,res)=>{
+    let {paymentId}=req.body;
+    orderPaymentId=paymentId;
+    res.render("products/sucessfull.ejs");
+});
+//order save route
+app.post("/order/save", async (req,res)=>{
+    for(model of models){
+        var data=await model.findById(orderid); 
+        if(data!=null){
+            break;
+        }  
+    }
+    console.log(orderPaymentId);
+    let order = new Order({
+        name:data.name,
+        info:data.info,
+        image1:data.image1,
+        price:data.price,
+        quantity:orderQty,
+        address:Ordersaddress,
+        paymentId:orderPaymentId,
+    });
+    await order.save();
+    console.log("order saved");
+})
 //home Appliances
 //fridge data RouTE
 app.get("/esport/home/fridge",async(req,res)=>{

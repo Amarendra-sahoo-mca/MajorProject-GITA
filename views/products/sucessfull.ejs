@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order place</title>
+    <style>
+        *{
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        }
+        .popup{
+            height: 400px;
+            width: 500px;
+            margin: 100px auto;
+            text-align: center;
+            border-radius: 20px;
+            border: 1px solid black;
+            box-shadow: 10px 10px 10px black;
+        }
+        .popup > img{
+            margin-top: 10px;
+            height: 200px;
+            width: 200px;
+        }
+        #done{
+            height: 40px;
+            width: 50%;
+            font-size: medium;
+            font-weight: bold;
+            cursor: pointer;
+            border-radius: 10px;
+            border: 1px solid transparent;
+            background-color: green;
+            color: #fff;
+        }
+    </style>
+</head>
+<body>
+    <div class="popup">
+            <img src="https://github.com/Amarendra-sahoo-mca/MajorProject-GITA/blob/main/images/popup/tick%20mark.jpg?raw=true" alt=""> 
+        <h2>Order Placed Sucessfully</h2>
+        <p>Press Done to Continue</p>
+        <form action="/order/save" method="post">
+        <button id="done">Done</button></form>
+    </div>
+</body>
+</html>

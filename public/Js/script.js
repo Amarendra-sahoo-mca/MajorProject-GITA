@@ -18,7 +18,15 @@ let f=1;
 let cartprice=0;
 let camount=0;
 Number(camount);
+//popup msg functionality 
 
+adtocart.addEventListener("click", ()=>{
+    console.log("xxxxx");
+    setTimeout(()=>{
+        popup.classList.add("popup");
+        popup.classList.remove("pophide");
+    },1000)
+});
 addnew.addEventListener("click",()=>{
         form.classList.remove("pophide");
     })
@@ -62,14 +70,7 @@ for(set of sets){
  
     })
 }
-//popup msg functionality 
-console.log(adtocart);
-adtocart.addEventListener("click", ()=>{
-    setTimeout(()=>{
-        popup.classList.add("popup");
-        popup.classList.remove("pophide");
-    },1000)
-})
+
 
 close.addEventListener("click",()=>{
     popup.classList.remove("popup");

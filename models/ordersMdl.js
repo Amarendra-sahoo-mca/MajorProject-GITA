@@ -21,8 +21,12 @@ let ordersSchema= new mongoose.Schema({
         required:true,
     },
     address:{
-        type:text,
+        type:String,
         required:true,
+    },
+    paymentId:{
+        type:String,
+
     }
 });
 const Order= mongoose.model("Order",ordersSchema);

@@ -15,7 +15,6 @@
             <p> <br> <br>
            <span class="price"><span class="discount">&#8377; 99,999</span><br><b>&#8377; <%=data.price.toLocaleString("en-IN")%></b></span>
         </p><br>
-        <form action="/orders/payments" method="post">
         <div class="quantity">
            <h5> Qty:  <%=quantity%></h5> 
         </div>
@@ -24,4 +23,15 @@
             </div>
     </div>
     </div>
+    <form method="post" action="/payment/option" >
+    <div class="payoption"> 
+        <p>Payment Option</p>
+        <span >&#8377;<%=data.price * quantity%></span> <br>
+        <input type="radio" name="poption" id="cod" value="cash">
+        <label for="cod">Cash on Delivery</label><br>
+        <input type="radio" name="poption" id="qr" value="qr">
+        <label for="qr">UPI</label> <br>
+        <button>Procced to Pay</button>
+    </div>
+</form>
 </body>
