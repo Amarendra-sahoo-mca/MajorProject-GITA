@@ -60,8 +60,14 @@ const FloreLamp= require("./models/decorative/florlampMdl.js");
 const Jhumar= require("./models/decorative/jhumarMdl.js");
 const Walllamp= require("./models/decorative/wallampMdl.js");
 
+//model gift
+const Fitstgift=require("./models/gift/Under500Mdl.js");
+const Secondgift=require("./models/gift/Under1000Mdl.js");
+const Thirdgift=require("./models/gift/Under1500Mdl.js");
+
 //model arr
 let models=[Cart,fridge,Ac,Tv,Arp,Washingm,Waterpurifier,Afrier,Chimney,CoffeeMkr,DishWasher,Ecockr,Grinder,Induction,Toster,Sandwich,Oven,Ktl,RoomH,WaterG,Laptop,WCharger,Printer,PowerBank,Camera,Computer,Earbod,Mobile,NeckBand,SmartW,AirCooler,TableFan,CillFan,FloreLamp,Jhumar,Walllamp];
+let giftModels=[Fitstgift,Secondgift,Thirdgift];
 
 app.set("views", path.join(__dirname,"views"));
 app.set("view engine","ejs");
@@ -79,7 +85,7 @@ async function main(){
     await mongose.connect('mongodb://127.0.0.1:27017/esport');
 }
 var selected_address=null;
-var Ordersaddress ;
+
 //add new address
 app.post("/esport/addnewaddress/:id", async(req,res)=>{
     let {id}=req.params;
@@ -183,6 +189,8 @@ app.post("/payment/option",(req,res)=>{
 var orderid;
 var orderQty;
 var orderPaymentId;
+var gift;
+var Ordersaddress ;
 //payment route
 app.post("/orders/payments", async(req,res)=>{
     let {quantity,pid}=req.body;
@@ -212,15 +220,51 @@ app.post("/payment_sucessfull",(req,res)=>{
     orderPaymentId=paymentId;
     res.render("products/sucessfull.ejs");
 });
-//order save route
-app.post("/order/save", async (req,res)=>{
+//gift select route
+app.get("/select/gift", async (req,res)=>{
     for(model of models){
         var data=await model.findById(orderid); 
         if(data!=null){
             break;
         }  
     }
-    console.log(orderPaymentId);
+   
+    if((orderQty * data.price)<20000){
+        let datas=await Fitstgift.find();
+        res.render("products/giftlist.ejs",{datas});
+    }
+    else if((orderQty*data.price)>20000 && (orderQty*data.price)<50000){
+        let datas=await Secondgift.find();
+        res.render("products/giftlist.ejs",{datas});
+    }
+    else if((orderQty*data.price)>50000 ){
+        let datas=await Thirdgift.find();
+        res.render("products/giftlist.ejs",{datas});
+    }
+})
+//gift profile route
+app.get("/esport/giftProfile/:id",async (req,res)=>{
+    let {id}=req.params;
+    for(model of giftModels){
+        
+        var data=await model.findById(id); 
+        if(data!=null){
+            break;
+        }  
+    }
+    gift=data;
+        res.render("products/giftprofile.ejs", {data});
+})
+//order save route
+app.post("/order/save", async (req,res)=>{
+
+    for(model of models){
+        var data=await model.findById(orderid); 
+        if(data!=null){
+            break;
+        }  
+    }
+    
     let order = new Order({
         name:data.name,
         info:data.info,
@@ -230,8 +274,10 @@ app.post("/order/save", async (req,res)=>{
         address:Ordersaddress,
         paymentId:orderPaymentId,
     });
+    order.gift.push(gift);
     await order.save();
     console.log("order saved");
+    res.render("products/goodbye.ejs");
 })
 //home Appliances
 //fridge data RouTE

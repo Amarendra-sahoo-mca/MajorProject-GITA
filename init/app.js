@@ -46,6 +46,11 @@ const florelampData=require("./decorativeD/florlampData.js");
 const jhumarData=require("./decorativeD/jhumarData.js");
 const walllampData=require("./decorativeD/walllampData.js");
 
+//data object array Gifts
+const gift1Data=require("./giftData/firstgiftData.js");
+const gift2Data=require("./giftData/secondgiftData.js");
+const gift3Data=require("./giftData/thirdgiftData.js");
+
 //models Home
 const Fridge=require("../models/homeAp/fridgemdl.js");
 const Ac=require("../models/homeAp/Acmodel.js");
@@ -93,6 +98,10 @@ const FloreLamp= require("../models/decorative/florlampMdl.js");
 const Jhumar= require("../models/decorative/jhumarMdl.js");
 const Walllamp= require("../models/decorative/wallampMdl.js");
 
+//model gift
+const Fitstgift=require("../models/gift/Under500Mdl.js");
+const Secondgift=require("../models/gift/Under1000Mdl.js");
+const Thirdgift=require("../models/gift/Under1500Mdl.js");
 main().then(()=>{
     console.log("connection establish");
 }).catch((err)=>{
@@ -364,3 +373,26 @@ async function wlmpinit(){
   console.log("wallLamp data was innitialize");
 };
 //wlmpinit();
+
+//GIFTS
+//firstGift data innitialize
+async function fginit(){
+  await  Fitstgift.deleteMany({});
+  await  Fitstgift.insertMany(gift1Data.data);
+  console.log("firstGift data was innitialize");
+};
+//fginit();
+//secondGift data innitialize
+async function sginit(){
+  await  Secondgift.deleteMany({});
+  await  Secondgift.insertMany(gift2Data.data);
+  console.log("firstGift data was innitialize");
+};
+//sginit();
+//thirdGift data innitialize
+async function tginit(){
+  await  Thirdgift.deleteMany({});
+  await  Thirdgift.insertMany(gift3Data.data);
+  console.log("thirdGift data was innitialize");
+};
+//tginit();

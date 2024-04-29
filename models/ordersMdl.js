@@ -1,4 +1,5 @@
 const mongoose=require("mongoose");
+const {Schema} = mongoose;
 let ordersSchema= new mongoose.Schema({
     name:{
         type:String,
@@ -21,13 +22,28 @@ let ordersSchema= new mongoose.Schema({
         required:true,
     },
     address:{
-        type:String,
+        type:Schema.Types.ObjectId,
+        ref:"Address",
         required:true,
     },
     paymentId:{
         type:String,
 
-    }
+    },
+    gift:[
+        {
+        type:Schema.Types.ObjectId,
+        ref:"Fitstgift",
+        },
+        {
+         type:Schema.Types.ObjectId,
+         ref:"Secondgift",
+        },
+        {
+         type:Schema.Types.ObjectId,
+         ref:"Thirdgift",
+        },
+    ],
 });
 const Order= mongoose.model("Order",ordersSchema);
 

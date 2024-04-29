@@ -1,0 +1,18 @@
+<% layout("/layouts/boilerplate") %> 
+<body>
+    <h1 style="font-style: italic; margin: 15px;">PLEASE SELECT A GIFT ITEM FOR YOU</h1>
+    <div class="fridgeCont">
+        <%for(data of datas){%>
+           <a method="GET" href="/esport/giftProfile/<%=data._id%>"> <div class="fridgeCard">
+                <div class="images">
+                <div class="imageslider">
+                    <img src=<%=data.image1%> alt="image1">
+                </div></div> <br> <br>
+                <h3><%=data.name%></h3>
+                
+                <div class="text"><p> <br>
+                   <span class="price"> <b>&#8377; <%=data.price.toLocaleString("en-IN")%></b></span></p> <br></div>
+            </div> </a>
+        <%}%>
+    </div>
+</body>

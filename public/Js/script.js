@@ -27,6 +27,10 @@ adtocart.addEventListener("click", ()=>{
         popup.classList.remove("pophide");
     },1000)
 });
+close.addEventListener("click",()=>{
+    popup.classList.remove("popup");
+    popup.classList.add("pophide");
+})
 addnew.addEventListener("click",()=>{
         form.classList.remove("pophide");
     })
@@ -72,10 +76,7 @@ for(set of sets){
 }
 
 
-close.addEventListener("click",()=>{
-    popup.classList.remove("popup");
-    popup.classList.add("pophide");
-})
+
 
 
 

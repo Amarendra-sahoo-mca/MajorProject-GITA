@@ -556,7 +556,17 @@ transition: all 0.3s linear;
     width: 32%;
     margin-top: 10px;
 }
-.popup,.pop > button{
+.popup > button{
+    width: 20%;
+    height: 1.9rem;
+    border-radius: 20px;
+    border: 0px;
+    font-weight: bold;
+    background-color: #0f07f9;
+    color:#fff;
+    cursor: pointer;
+}
+.pop > button{
     width: 20%;
     height: 1.9rem;
     border-radius: 20px;
