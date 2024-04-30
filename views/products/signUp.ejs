@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sign-In</title>
+    <title>Sign-Up</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer"/>
     <style>
         *{
@@ -31,7 +31,7 @@ input{
 .contener{
     /* border: 1px solid black; */
     border-radius: 30px;
-    height: 65%;
+    height: 75%;
     width: 50%;
     display: flex;
     position: absolute;
@@ -131,6 +131,9 @@ button:hover{
     border-radius: 10px;
     cursor:not-allowed;
 }
+.form{
+    margin-top: -30px;
+}
 .e{
     margin-left: 41%;
     width: 35px;
@@ -157,7 +160,7 @@ button:hover{
     font-size: larger;
     font-weight: bolder;
     position: relative;
-    top: 45px;
+    top: 15px;
     left: 30%;
 }
 .default{
@@ -181,21 +184,14 @@ button:hover{
     font-family:'FontAwesome';
     position: relative;
     top: 5%;
-    left: -10%;
+    left: -15%;
     cursor: pointer;
 }
 .condition2{
     font-family: 'FontAwesome';
 }
-        .show > i{    
-        top: 240px;
-    }
-    .sp{
-        position: relative;
-        left: 20%;
-    }
-    @media(max-width:400px){
-        .contener{
+@media(max-width:400px){
+    .contener{
         background-color: #fff;
         border-radius: 30px;
         height: 85%;
@@ -250,17 +246,12 @@ button:hover{
         top: -45px;
         margin: 5px 2%;
     }
-
-        .show > i{
-        top: 144px;
-        left: 82%;
-    }
-    }
+}
     </style>
 </head>
 <body>
     <div class="main">
-        <h1><span>Sign In</span> Page</h1>
+        <h1><span>Sign Up</span> form</h1>
         <div class="contener">
         <div class="hiro">
             <div class="core1">
@@ -271,45 +262,79 @@ button:hover{
             </div>
         </div>
         <div class="work">
-            <span>Hello User</span>
+            <span>Hello, friend!</span>
             <div class="core2">
-        <form action="index.html" onsubmit="return sts()" class="form">
-            <span id="emspn" class="sp"></span><br><span id="nmspn" class="sp"></span>
-        <!-- <label class="lbl" for="nm">&nbsp;&nbsp;name</label>
-        <input type="text" name="username" id="nm" class="inp" placeholder="  &#xf007;" autofocus>  <span id="nmspn"></span> -->
-        <br>
+        <form action="http://localhost:8080/esport/user/signUp" method="post" onsubmit="return sts()" class="form">
+        <label class="lbl" for="nm">&nbsp;&nbsp;username</label>
+        <input type="text" name="username" id="nm" class="inp" placeholder="  &#xf007;" autofocus>  <span id="nmspn"></span><br>
         <label class="lbl" for="ph">&nbsp;&nbsp;email</label>
-        <input type="email"  name="usermail"id="ph" class="inp" placeholder="  &#xf2b6;"> <br>
+        <input type="email"  name="usermail"id="ph" class="inp" placeholder="  &#xf2b6;"> <span id="emspn"></span><br>
         <label class="lbl" for="ps">&nbsp;&nbsp;password</label>
         <input type="password" name="userpass" id="ps" class="inp" placeholder="  &#xf084;"><span class="show"><i class="fa-duotone fa-eye"></i></span> <br>
-        <span class="condition" ></span> 
-        <button id="submit">LogIn</button> </form>
-        <span>Don't have any account?<a href="sign-Up.html">Sign Up</a></span>
+        <span class="condition" >use 8 more char with mix letter, numbers and symbol</span> 
+        <button id="submit">Sign Up</button> </form>
+        <span>Already have an account?<a href="http://localhost:8080/esport/user/signinForm" method="get">SignIn</a></span>
     </div></div></div>
     </div>
     <script>
-        let inp2=document.querySelector("#ph");
+        let inp1=document.querySelector("#nm");
+let inp2=document.querySelector("#ph");
 let inp3=document.querySelector("#ps");
-
+let arr=[inp1,inp2,inp3];
+let msg=document.querySelector(".condition");
 let submit=document.querySelector("#submit");
 let span1=document.querySelector("#nmspn");
 let span2=document.querySelector("#emspn");
 let sbtn=document.querySelector(".show");
-
+inp1.addEventListener("keydown",()=>{
+    inp1.classList.add("default");
+    // console.log("xxx");
+    });
 inp2.addEventListener("keydown",()=>{
     inp2.classList.add("default");
-    });
+     //console.log("yyy");
+     });
+inp3.addEventListener("keyup",()=>{   
+let Upass=inp3.value;
+inp3.classList.add("default");
+//check number in passward
+var num=/[0-9]/g;
+var sym= /[`!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?~]/;
+
+if(Upass.length<8){
+    msg.innerHTML="Too small passward";
+    msg.style.color="red";
+}
+else if(!Upass.match(sym)){
+    msg.innerText="symbol not found";
+    msg.style.color="red";
+}
+else if(!Upass.match(num)){
+    msg.innerText="number is not present";
+    msg.style.color="red";
+}
+else{
+    msg.innerHTML=" &#xf058; strong passward";
+    msg.style.color="green";
+    msg.classList.add("condition2");
+}
+
+}); 
+
+if(inp2.value.match(/^[A-Za-z\._\-0-9]*[@][A-Za-z]*[\.][a-z]{2,4}$/));{
+
+}
 submit.addEventListener("click",sts);
+
 function sts(){
     let flag1=0;
     let flag2=0;
-    
+    if(inp1.value.length<1 ){
+        span1.innerHTML="name is empty";
+        flag1=1;
+    }
     if(inp2.value.length<1){
         span2.innerText="email is empty";
-        flag2=1
-    }
-    if(inp3.value.length<1){
-        span1.innerText="password is empty";
         flag2=1
     }
     if(flag1==1 || flag2==1){
@@ -320,8 +345,6 @@ function sts(){
     }
 }
 sbtn.addEventListener("click",()=>{
-    // const inp3=document.querySelector(".ps");
-    inp3.classList.add("default");
     if(inp3.type == "password"){
         inp3.type = "text";
     }

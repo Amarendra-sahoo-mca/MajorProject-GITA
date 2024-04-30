@@ -171,9 +171,9 @@ button:hover{
 }
 .show > i{
     font-family:'FontAwesome';
-    position: absolute;
-    top: 58%;
-    left: 85%;
+    position: relative;
+    top: 5%;
+    left: -10%;
     cursor: pointer;
 }
 .condition2{

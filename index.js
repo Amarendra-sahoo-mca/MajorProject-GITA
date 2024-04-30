@@ -6,6 +6,8 @@ const path = require("path");
 const methodoverride=require("method-override");
 const ejsMate=require("ejs-mate");
 
+//user model
+const User=require("./models/userMdl.js");
 //cart model
 const Cart=require("./models/cartMdl.js");
 //address model
@@ -85,6 +87,41 @@ async function main(){
     await mongose.connect('mongodb://127.0.0.1:27017/esport');
 }
 var selected_address=null;
+
+var user;
+//sign-up form route
+app.get("/esport/user/signUp",(req,res)=>{
+    res.render("products/signUp.ejs");
+})
+//user sign up route
+app.post("/esport/user/signUp", async (req,res)=>{
+    let {username,usermail,userpass}=req.body;
+    user=new User({
+        name:username,
+        email:usermail,
+        password:userpass,
+    });
+    await user.save();
+    console.log("sign-up sucessfull");
+    res.render("products/home.ejs");
+})
+
+//sign-in form route
+app.get("/esport/user/signinForm",(req,res)=>{
+    res.render("products/sign-in.ejs");
+})
+//user log-in route
+app.post("/esport/user/signin",async (req,res)=>{
+    let {name,userpass}=req.body;
+    let data=await User.find({name:name});
+    if(data==null || data.password!=userpass){
+        prompt("invalid username or pass word");
+    }
+    else{
+        console.log("log-In sucessfull");
+        res.render("products/home.ejs");
+    }
+})
 
 //add new address
 app.post("/esport/addnewaddress/:id", async(req,res)=>{

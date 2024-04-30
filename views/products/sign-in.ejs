@@ -179,9 +179,9 @@ button:hover{
 }
 .show > i{
     font-family:'FontAwesome';
-    position: relative;
-    top: 5%;
-    left: -10%;
+    position: absolute;
+    top: 10px;
+    left: 85%;
     cursor: pointer;
 }
 .condition2{
@@ -273,18 +273,18 @@ button:hover{
         <div class="work">
             <span>Hello User</span>
             <div class="core2">
-        <form action="index.html" onsubmit="return sts()" class="form">
+        <form action="http://localhost:8080/esport/user/signin" method="post" onsubmit="return sts()" class="form">
             <span id="emspn" class="sp"></span><br><span id="nmspn" class="sp"></span>
         <!-- <label class="lbl" for="nm">&nbsp;&nbsp;name</label>
         <input type="text" name="username" id="nm" class="inp" placeholder="  &#xf007;" autofocus>  <span id="nmspn"></span> -->
         <br>
-        <label class="lbl" for="ph">&nbsp;&nbsp;email</label>
-        <input type="email"  name="usermail"id="ph" class="inp" placeholder="  &#xf2b6;"> <br>
+        <label class="lbl" for="ph">&nbsp;&nbsp;username</label>
+        <input type="text"  name="name"id="ph" class="inp" placeholder=" &#xf007;"> <br>
         <label class="lbl" for="ps">&nbsp;&nbsp;password</label>
         <input type="password" name="userpass" id="ps" class="inp" placeholder="  &#xf084;"><span class="show"><i class="fa-duotone fa-eye"></i></span> <br>
         <span class="condition" ></span> 
         <button id="submit">LogIn</button> </form>
-        <span>Don't have any account?<a href="sign-Up.html">Sign Up</a></span>
+        <span>Don't have any account?<a href="sign-Up.html">SignUp</a></span>
     </div></div></div>
     </div>
     <script>
