@@ -95,10 +95,11 @@ app.get("/esport/user/signUp",(req,res)=>{
 })
 //user sign up route
 app.post("/esport/user/signUp", async (req,res)=>{
-    let {username,usermail,userpass}=req.body;
+    let {username,usermail,number,userpass}=req.body;
     user=new User({
         name:username,
         email:usermail,
+        phone:number,
         password:userpass,
     });
     await user.save();
@@ -112,10 +113,10 @@ app.get("/esport/user/signinForm",(req,res)=>{
 })
 //user log-in route
 app.post("/esport/user/signin",async (req,res)=>{
-    let {name,userpass}=req.body;
-    let data=await User.find({name:name});
+    let {uemail,userpass}=req.body;
+    let data= await User.findOne({email:uemail});
     if(data==null || data.password!=userpass){
-        prompt("invalid username or pass word");
+        alert("invalid username or pass word");
     }
     else{
         console.log("log-In sucessfull");

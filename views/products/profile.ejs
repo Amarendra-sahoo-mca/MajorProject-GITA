@@ -35,4 +35,23 @@
         <p>continue shopping</p> <br>
         <button id="close">close</button>
     </div>
+    <script>
+        let popup=document.querySelector(".xxx");
+        let adtocart=document.querySelector("#adtocart");
+        let close=document.querySelector("#close");
+        
+        adtocart.addEventListener("click",()=>{
+    console.log("xxxxx");
+    setTimeout(()=>{
+        popup.classList.add("popup");
+        popup.classList.remove("pophide");
+    },1000);
+} );
+
+
+close.addEventListener("click",()=>{
+    popup.classList.remove("popup");
+    popup.classList.add("pophide");
+});
+    </script>
 </body>

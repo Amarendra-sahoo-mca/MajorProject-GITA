@@ -232,6 +232,27 @@
         
     
     </footer>
-<script src="/Js/script.js"></script>
+<script>
+    let img=document.querySelector(".imag");
+    let text=document.querySelector(".tex");
+    let n=0;
+    setInterval(()=>{
+    text.style.transform = `translateX(-${n*25}%)`;
+    img.style.transform = `translateX(-${n*25}%)`;
+    if(n==3){
+        f=0;
+    }
+    else if(n==0){
+        f=1;
+    }
+    if(f==1){
+        n++;
+    }
+    else{
+        n--;
+    }
+}, 4000);
+console.log("jay ganesh");
+</script>
 </body>
 </html>

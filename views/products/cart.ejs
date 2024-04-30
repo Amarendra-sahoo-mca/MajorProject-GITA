@@ -33,4 +33,34 @@
             <div class="dcharge"><span>Delivery</span><span style="color: green;">FREE Delivery</span></div>
             <div class="total"><span>Total</span><span>&#8377;<input type="text" class="inp" disabled value="1222"></span></div>
         </div>
+        <script>
+            let prices=document.querySelectorAll(".amount");
+            let qtys=document.querySelectorAll(".Qty");
+            let amounts=document.querySelectorAll(".inp");
+            let sets=document.querySelectorAll(".set");
+            let camount=0;
+
+            for(let i=0;i<prices.length;i++){
+            let price=prices[i];
+            let qty=qtys[i];
+            camount+=Number((price.value)*Number(qty.value));
+            }
+            for(amount of amounts){
+            amount.value=camount;
+            }
+            for(set of sets){
+    set.addEventListener("click",()=>{
+        camount=0;
+        for(let i=0;i<prices.length;i++){
+            let price=prices[i];
+            let qty=qtys[i];
+            camount+=Number((price.value)*Number(qty.value));
+         }
+         for(amount of amounts){
+            amount.value=camount;
+        }
+ 
+    })
+}
+        </script>
 </body>
