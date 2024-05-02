@@ -1,0 +1,11 @@
+<% layout("/layouts/boilerplate") %> 
+<body>
+    <div class="addCont">
+        <h2 style="margin: 15px;">Your Address List :</h2>
+        <%for(address of addresses){%>
+            <div class="adrs" style="border: 1px solid black; width: 20%; margin: 10px auto;padding: 10px;border-radius: 10px;">
+                <%=address.name%>,<%=address.phone%>,<br><%=address.pincode%>,<%=address.state%>,<%=address.city%>, <br><%=address.area%>,<%=address.house%>
+            </div>
+       <% }%>
+    </div>
+</body>

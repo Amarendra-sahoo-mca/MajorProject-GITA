@@ -1,0 +1,31 @@
+<% layout("/layouts/boilerplate") %> 
+
+<body>
+    
+    <div class="Pfile">
+        <div class="header" style="height: 105px; width: 80%; border: 1px dotted black; display: flex; margin:20px  0px 0px 10%; border-radius: 10px 10px 0 0; justify-content:left; align-items: center;">
+            <img src="https://www.pngall.com/wp-content/uploads/5/Profile-PNG-Images.png" style="height: 100px; width: 100px; background-color: #b8b7b7; border-radius: 50%; margin:0px 40px;" alt="">
+            <div class="uname"><h2><%=data.name%></h2>
+                <p><%=data.email%> <br> <%=data.phone%></p>
+            </div>
+        </div>
+        <div class="bdy" style="height: auto; width: 80%; border: 1px dotted black;margin-left: 10%;" >
+            <div class="orders" style="padding: 10px;">
+                <h2>Your Orders :-</h2>
+                <%for(order of orders){%>
+                   <a href="http://localhost:8080/order/profile/<%=order._id%>" class="orderat" > <div class="order">
+                        <div class="pimg">
+                            <img src="<%=order.image1%>" style="height: 100px; width: 100px;" alt="">
+                        </div>
+                        <div class="info" style="margin-left: 10px;">
+                            <p><%=order.name%></p><br>
+                            <h3>&#8377; <%=order.price.toLocaleString("en-IN")%></h3> <br>
+                            <h4>Qty :<%=order.quantity%></h4>
+                        </div>
+                    </div></a>
+                <%}%>
+
+            </div>
+        </div>
+    </div>
+</body>

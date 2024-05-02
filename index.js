@@ -88,13 +88,16 @@ async function main(){
 }
 var selected_address=null;
 
-var user;
+let user;
+let userMdl;
+
 //sign-up form route
 app.get("/esport/user/signUp",(req,res)=>{
     res.render("products/signUp.ejs");
 })
 //user sign up route
 app.post("/esport/user/signUp", async (req,res)=>{
+    user=null;
     let {username,usermail,number,userpass}=req.body;
     user=new User({
         name:username,
@@ -104,6 +107,8 @@ app.post("/esport/user/signUp", async (req,res)=>{
     });
     await user.save();
     console.log("sign-up sucessfull");
+    console.log(user);
+    userMdl=user;
     res.render("products/home.ejs");
 })
 
@@ -138,10 +143,14 @@ app.post("/esport/addnewaddress/:id", async(req,res)=>{
         area: landmark
     });
     await newAddress.save();
+    console.log(user);
+    userMdl.address.push(newAddress);
+    await userMdl.save();
+    console.log(userMdl);
     console.log("address saved sucessfully");
     let redir="/esport/"+id+"/buyNow";
    res.redirect(redir);
-})
+});
 //address chosen route
 app.post("/chosen/address", async (req,res)=>{
     let {addres1}=req.body;
@@ -149,6 +158,42 @@ app.post("/chosen/address", async (req,res)=>{
     let data= await Address.findOne({_id:id});
     selected_address=data;
     
+});
+//cart interface route
+app.get("/esport/cart",async(req,res)=>{
+    let data=await User.findById(userMdl._id).populate("cart");
+   let datas=data.cart;
+   console.log(datas);
+    res.render("products/cart.ejs",{datas});
+})
+//address list route
+app.get("/espot/addresslist",async(req,res)=>{
+    let data=await User.findById(userMdl._id).populate("address");
+    let addresses=data.address;
+    console.log(addresses);
+    res.render("products/addresslist.ejs",{addresses});
+})
+
+//user profile route
+app.get("/user/profile", async(req,res)=>{
+    let data=await User.findById(userMdl._id).populate("orders");
+    let orders=data.orders;
+    console.log(orders);
+    res.render("products/userProfile.ejs", {data,orders});
+});
+
+//order profile route
+app.get("/order/profile/:id",async(req,res)=>{
+    let {id}=req.params;
+    let data= await Order.findById(id);
+    let giftid=data.gift;
+    for(giftmodel of giftModels){
+        var gift=await giftmodel.findById(giftid); 
+        if(gift!=null){
+            break;
+        }  
+    }
+    res.render("products/orderprofile.ejs",{data, gift});
 })
 //add to cart route
 app.get("/esport/:id/cart", async (req,res)=>{
@@ -165,13 +210,13 @@ app.get("/esport/:id/cart", async (req,res)=>{
         image1:data.image1,
         price:data.price,
     });
-    let result=await cart1.save();
+    await cart1.save();
+    userMdl.cart.push(cart1);
+    await userMdl.save();
+    console.log(userMdl);
     console.log("added to cart sucessfully");
 });
-app.get("/esport/cart",async(req,res)=>{
-    let datas=await Cart.find();
-    res.render("products/cart.ejs",{datas});
-})
+
 //romove from cart route
 app.delete("/esport/:id", async(req,res)=>{
     let {id}=req.params;
@@ -204,7 +249,7 @@ app.get("/esport/:id/buyNow", async (req,res)=>{
             break;
         }  
     }
-    let address= await Address.find();
+    let address= userMdl.address;
     res.render("products/buynow.ejs",{data,address});
 });
 //after err buy now route
@@ -314,6 +359,9 @@ app.post("/order/save", async (req,res)=>{
     });
     order.gift.push(gift);
     await order.save();
+    userMdl.orders.push(order);
+    await userMdl.save();
+    console.log(userMdl);
     console.log("order saved");
     res.render("products/goodbye.ejs");
 })
@@ -505,3 +553,4 @@ app.get("/esport/decorative/florelamp",async(req,res)=>{
     let datas= await Jhumar.find();
     res.render("products/lists.ejs",{datas});
   });
+ 

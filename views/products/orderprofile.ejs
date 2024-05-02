@@ -1,0 +1,29 @@
+<% layout("/layouts/boilerplate") %> 
+<body>
+    <div class="profileCont">
+        <div class="profileImage">
+            <div class="imagesrl">
+            <img src="<%=data.image1%>" alt="image1"></div>
+        </div>
+        <div class="profiletText">
+            <h2><%=data.name%></h2>
+            <br><br>
+            <h4><%=data.info%></h4> 
+            <br><br>
+            <span class="price"><span class="discount">&#8377; 99,999</span><br> <br> <b>&#8377; <%=data.price.toLocaleString("en-IN")%></b></span> <br> <br>
+            <h4>Qty :<%=data.quantity%></h4> <br><br>
+            <h4>Order Amount :&#8377; <%=data.price * data.quantity%></h4>
+            <br><br>
+            <h4>gift:</h4>
+            <div class="gift" style="display: flex; border: 1px dotted black; padding-left: 15px; align-items: center; width: 80%;">
+                <div class="gimg" >
+                    <img src="<%=gift.image1%>" alt="" style="height: 100px;width: 100px;">
+                </div>
+                <div class="ginfo" style="margin-left: 15px;">
+                    <h4> <%=gift.name%></h4> <br>
+                    <p><b>price :</b> &#8377;<span style="text-decoration: line-through;"><%=gift.price.toLocaleString("en-IN")%></span> &nbsp; <span style="color: green; font-weight: bold;">Free</span></p>
+        </div>
+        </div>
+        </div>
+    </div>
+</body>
