@@ -10,6 +10,24 @@ let n=0;
 let f=1;
 let flag=0;
 let clicked=0;
+setInterval(()=>{
+
+    text.style.transform = `translateX(-${n*25}%)`;
+    img.style.transform = `translateX(-${n*25}%)`;
+    if(n==3){
+        f=0;
+    }
+    else if(n==0){
+        f=1;
+    }
+    if(f==1){
+        n++;
+    }
+    else{
+        n--;
+    }
+   
+}, 4000);
 sdiv.addEventListener("click",()=>{
     if(flag==0){
         sdiv.classList.remove("innitial");
@@ -60,21 +78,3 @@ menu.addEventListener("click",()=>{
     }
   
 });
-setInterval(()=>{
-
-    text.style.transform = `translateX(-${n*25}%)`;
-    img.style.transform = `translateX(-${n*25}%)`;
-    if(n==3){
-        f=0;
-    }
-    else if(n==0){
-        f=1;
-    }
-    if(f==1){
-        n++;
-    }
-    else{
-        n--;
-    }
-   
-}, 4000);
