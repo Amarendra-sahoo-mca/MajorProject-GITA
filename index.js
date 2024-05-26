@@ -121,10 +121,13 @@ app.post("/esport/user/signin",async (req,res)=>{
     let {uemail,userpass}=req.body;
     let data= await User.findOne({email:uemail});
     if(data==null || data.password!=userpass){
-        alert("invalid username or pass word");
+        console.log("invalid username or password");
+        res.redirect("/esport/user/signinForm");
     }
     else{
         console.log("log-In sucessfull");
+        userMdl=data;
+        console.log(userMdl);
         res.render("products/home.ejs");
     }
 })
