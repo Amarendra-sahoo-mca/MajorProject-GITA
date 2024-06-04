@@ -131,7 +131,30 @@ app.post("/esport/user/signin",async (req,res)=>{
         res.render("products/home.ejs");
     }
 })
-
+//forgot password route
+app.get("/esport/fpassword/form",(req,res)=>{
+    res.render("products/recover.ejs");
+});
+//user varification route
+app.post("/esport/fpassword/form",async(req,res)=>{
+    let {email,Phone}=req.body;
+    let data= await User.findOne({email:email});
+    if(Phone==data.phone){
+        res.render("products/setnewpas.ejs" ,{data})
+    }else{
+        res.send("phone number dose not match");
+    }
+});
+//updat password route
+app.patch("/esport/updatePassword/:id",async(req,res)=>{
+    let {id}=req.params;
+    // let password=req.body;
+    let data=await User.findById(id);
+    data.password=req.body.password;
+     console.log(data.password);
+     data.save();
+     res.send("password updated successfully");
+})
 //add new address
 app.post("/esport/addnewaddress/:id", async(req,res)=>{
     let {id}=req.params;

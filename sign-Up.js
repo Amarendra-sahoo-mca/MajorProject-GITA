@@ -7,6 +7,8 @@ let submit=document.querySelector("#submit");
 let span1=document.querySelector("#nmspn");
 let span2=document.querySelector("#emspn");
 let sbtn=document.querySelector(".show");
+
+
 inp1.addEventListener("keydown",()=>{
     inp1.classList.add("default");
     // console.log("xxx");
@@ -42,9 +44,6 @@ else{
 
 }); 
 
-if(inp2.value.match(/^[A-Za-z\._\-0-9]*[@][A-Za-z]*[\.][a-z]{2,4}$/));{
-
-}
 submit.addEventListener("click",sts);
 
 function sts(){

@@ -195,8 +195,57 @@ footer{
 
 
 
-
-
+/* password recover */
+.recoverdiv{
+    height: 50vh;
+    width: 40vw;
+    border: .5px solid black;
+    margin: 100px auto;
+    padding-top: 50px;
+    background-color:#2a2828;
+    border-radius: 20px;
+}
+.rspan{
+    color: #fff;
+    width: 90%;
+    margin: 10px 5%;
+}
+.h2{
+    text-align: center;
+    color: #fff;
+}
+.rinput{
+    margin-top: 5px;
+    height: 30px;
+    width: 100%;
+    font-size: medium;
+    border: 0px ;
+}
+.rinput::-webkit-outer-spin-button,
+.rinput::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+.check{
+    width: 60%;
+    height: 30px;
+    margin-left: 20%;
+    font-weight: bold;
+     font-size:medium;
+    border: 0px;
+    border-radius: 15px;
+    color: #fff;
+    background-color: rgb(192, 15, 101);
+    cursor: pointer;
+}
+.verify{
+    font-size: large;
+    color:red;
+    font-weight: bolder;
+    width: 100%;
+    margin-top: 20px;
+    text-align: center;
+}
 
 
 .fridgeCont{

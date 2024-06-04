@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>new password</title>
+    <link rel="stylesheet" href="/CSS/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+    <div class="recoverdiv">
+        <form method="post" action="http://localhost:8080/esport/updatePassword/<%=data._id%>?_method=PATCH" onsubmit="return sts()">
+            <h2 class="h2">SET NEW PASSWORD</h2>
+            <div class="rspan">
+                Enter new password : <br>
+                <input type="text" class="rinput" id="rinp1" placeholder="enter password">
+            </div> <br>
+            <div class="rspan">
+                 Conform new password : <br>
+                 <input type="text" name="password" id="rinp2" class="rinput" placeholder="conform password">
+            </div> <br>
+            <button class="check">Submit</button> <br> <br>
+            <div class="verify"></div>
+        </form></div>
+        <script>
+            let pass1=document.querySelector("#rinp1");
+            let pass2=document.querySelector("#rinp2");
+            let msg=document.querySelector(".verify");
+            let check=document.querySelector(".check");
+            console.dir(check);
+            
+           
+            check.addEventListener("click",sts);
+            function sts(){
+                let flag=0;
+                if(pass1.value!= pass2.value){
+                    msg.innerHTML='<p><i class="fa-solid fa-circle-exclamation"></i>password dose not match</p>';
+                    flag=1;
+                    
+                }
+                if(flag==1){
+                    return false;
+                }
+                else {
+                    return true;
+            }}
+        </script>
+</body>
+</html>
