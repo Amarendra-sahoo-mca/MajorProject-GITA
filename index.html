@@ -3,232 +3,39 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home page</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="stylesheet" href="index_style.css">
+    <title>Sign-Up</title>
+    <link rel="stylesheet" href="sign-Up.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer"/>
 </head>
 <body>
-    <!-- nav bar -->
-    <div class="hero">
-        <div class="left"></div>
-        <div class="right"></div>
-   <div class="nav">
-    <div class="logo">
-        <div class="e">E</div>
-        <div class="s">Spot</div>
+    <div class="main">
+        <h1><span>Sign Up</span> form</h1>
+        <div class="contener">
+        <div class="hiro">
+            <div class="core1">
+                <div class="logo">
+                    <div class="e">E</div>
+                    <div class="s">Sport</div>
+                </div>
+            </div>
+        </div>
+        <div class="work">
+            <span>Hello, friend!</span>
+            <div class="core2">
+        <form action="http://localhost:8080/esport/user/signUp" method="post" onsubmit="return sts()" class="form">
+        <label class="lbl" for="nm">&nbsp;&nbsp;name</label>
+        <input type="text" name="username" id="nm" class="inp" placeholder="  &#xf007;" autofocus>  <span id="nmspn"></span><br>
+        <label class="lbl" for="ph">&nbsp;&nbsp;email</label>
+        <input type="email"  name="usermail"id="ph" class="inp" placeholder="  &#xf2b6;"> <span id="emspn"></span><br>
+        <label class="lbl" for="pnum">&nbsp;&nbsp;phone</label>
+        <input type="number"  name="number"id="pnum" class="inp" placeholder="  &#9742;"> <span id="emspn"></span><br>
+        <label class="lbl" for="ps">&nbsp;&nbsp;password</label>
+        <input type="password" name="userpass" id="ps" class="inp" placeholder="  &#xf084;"><span class="show"><i class="fa-duotone fa-eye"></i></span> <br>
+        <span class="condition" >use 8 more char with mix letter, numbers and symbol</span> 
+        <button id="submit">Sign Up</button> </form>
+        <span>Already have an account?<a href="log-in.html">Sign in</a></span>
+    </div></div></div>
     </div>
-    <!-- <form  action="/search">
-    <div class="search innitial"> 
-        
-        <button type="submit" id="searchbtn"><i class="fa-solid fa-magnifying-glass"></i></button>
-        <input class="input" type="text" placeholder="search products" name="search">
-    </div>
-</form> -->
-    <div class="options">
-        <div class="menu"><button class="xx"><i class="fa-solid fa-bars "></i></button></div>
-        <div class="option hide"><a href="http://localhost:8080/esport/home">Home</a></div>
-        <div class="option hide"><a href="http://localhost:8080/espot/addresslist">Address</a></div>
-        <div class="option l hide"><a href="http://localhost:8080/user/profile"><i class="fa-solid fa-user"></i></a></div>
-        <!-- <div class="option l hide"> <a href=""><i class="fa-regular fa-heart"></i></a></div> -->
-        <div class="option l hide"><a href="http://localhost:8080/esport/cart"><i class="fa-solid fa-cart-arrow-down"></i></a></div>
-        
-    </div>
-   </div>
-</div>
-   <div class="Add">
-    <div class="right ch1">
-        <div class="slider text">
-            <div class="slide">
-                <h2>GET AC ON</h2>
-                    <p>&#8377;34,900</p>
-                <h3>ONLY</h3>
-            </div>
-            <div class="slide">
-                <h2>COFFEE MAKER</h2>
-                    <p>&#8377;3,299</p>
-                <h3>ONLY</h3>
-            </div>
-            <div class="slide">
-                <h2>GET LAPTOP ON</h2>
-                    <p>&#8377;99,990</p>
-                <h3>ONLY</h3>
-            </div>
-            <div class="slide">
-                <h2>GET GIFT ON</h2>
-                    <p>EVERY</p>
-                <h3>ORDERS</h3>
-            </div>
-        </div>
-    </div>
-    <div class="left ch2">
-        <div class="slider image">
-            <div class="slide one">
-            <div class="circle">
-                <img src="https://github.com/Amarendra-sahoo-mca/MajorProject-GITA/blob/main/images/AC/AC4/1.png?raw=true">
-            </div>
-        </div>
-        <div class="slide two">
-            <div class="circle">
-                <img src="https://github.com/Amarendra-sahoo-mca/MajorProject-GITA/blob/main/images/KITCHEN%20APPLIANCES/coffee%20meaker/CM1/1.png?raw=true">
-            </div>
-        </div>
-        <div class="slide three">
-            <div class="circle">
-                <img src="https://github.com/Amarendra-sahoo-mca/MajorProject-GITA/blob/main/images/smart%20gadget/laptop/lp7/1.png?raw=true" alt="">
-            </div>
-        </div>
-        <div class="slide  four">
-            <div class="circle">
-                <img src="https://github.com/Amarendra-sahoo-mca/MajorProject-GITA/blob/main/images/gift%20voucher/1000-1500/bluetooth%20speaker/1.png?raw=true" alt="">
-            </div>
-        </div></div>
-    </div>
-   </div>
-</div>
-    <!-- <h1>This is our home page</h1>
-    <a href="sign-Up.html"><h2>sign Up page</h2></a>
-    <a href="log-in.html"><h2>sign In page</h2></a>-->
-    <div class="catagoris"> 
-        <div class="home c">
-            <h4>Home Appliance</h4>
-            <img src="https://github.com/Amarendra-sahoo-mca/MajorProject-GITA/blob/main/images/HOME%20APPLIANCES/Home_appliance-banner.jpg?raw=true" alt="home appliance" class="profileImg">            
-        <div class="items">
-           <a href="http://localhost:8080/esport/home/tv"> <div class="tv card">TV</div></a>
-           <a href="http://localhost:8080/esport/home/fridge"> <div class="fridge card">FRIDGE</div></a>
-           <a href="http://localhost:8080/esport/home/ac"> <div class="ac card">AC</div></a>
-           <a href="http://localhost:8080/esport/home/air_purifier"> <div class="ac card">AIR PURIFIER</div></a>
-            <a href="http://localhost:8080/esport/home/washing_machine"> <div class="ac card">WASHING MACHINE</div></a>
-            <a href="http://localhost:8080/esport/home/water_purifier"> <div class="ac card">WATER PURIFIER</div></a>
-        </div>
-        </div>
-        <div class="kitchen c"><h4>Kitchen Appliance</h4>
-            <img src="https://github.com/Amarendra-sahoo-mca/MajorProject-GITA/blob/main/images/KITCHEN%20APPLIANCES/Kitchen-Appliances-Banner.png?raw=true" alt="kitchen appliance" class="profileImg">
-            <div class="items">
-            <a href="http://localhost:8080/esport/kitchen/airfryer"> <div class="tv card">Airfryer</div></a>
-            <a href="http://localhost:8080/esport/kitchen/Chimney"> <div class="fridge card">CHIMNEY</div></a>
-            <a href="http://localhost:8080/esport/kitchen/coffeemaker"> <div class="fridge card">COFFEE MAKER</div></a>
-            <a href="http://localhost:8080/esport/kitchen/DishWasher"> <div class="fridge card">DISH WASHER</div></a>
-            <a href="http://localhost:8080/esport/kitchen/electric_coocker"> <div class="fridge card">ELECTRIC COOCKER</div></a>
-            <a href="http://localhost:8080/esport/kitchen/grinder"> <div class="fridge card">GRINDER</div></a>
-            <a href="http://localhost:8080/esport/kitchen/induction"> <div class="fridge card">INDUCTION</div></a>
-            <a href="http://localhost:8080/esport/kitchen/oven"> <div class="fridge card">OVEN</div></a>
-            <a href="http://localhost:8080/esport/kitchen/sandwich"> <div class="fridge card">SANDWICH MAKER</div></a>
-            <a href="http://localhost:8080/esport/kitchen/toster"> <div class="fridge card">TOSTER</div></a>
-        </div></div>
-        <div class="winter c"><h4>Winter Appliance</h4> 
-            <img src="https://github.com/Amarendra-sahoo-mca/MajorProject-GITA/blob/main/images/WINTER%20APPLIANCES/winter-applience-banner.jpg?raw=true" alt="winter appliance" class="profileImg">
-            <div class="items">
-            <a href="http://localhost:8080/esport/winter/kettle"><div class="fridge card">KETTLE</div></a>
-            <a href="http://localhost:8080/esport/winter/room_heater"><div class="fridge card">ROOM HEATER</div></a>
-            <a href="http://localhost:8080/esport/winter/water_geyser"><div class="fridge card">WATER GEYSER</div></a>
-        </div></div>
-        <div class="smartg c">
-            <h4>Smart Gadgets</h4> 
-            <img src="https://github.com/Amarendra-sahoo-mca/MajorProject-GITA/blob/main/images/smart%20gadget/smart%20gadget%20profile.jpg?raw=true" alt="smart gadgets" class="profileImg">
-            <div class="items">
-            <a href="http://localhost:8080/esport/smartg/laptop"><div class="fridge card">LAPTOP</div></a>
-            <a href="http://localhost:8080/esport/smartg/wireless_charger"><div class="fridge card">CHARGER</div></a>
-            <a href="http://localhost:8080/esport/smartg/printer"><div class="fridge card">PRINTER</div></a>
-            <a href="http://localhost:8080/esport/smartg/powerbank"><div class="fridge card">POWER BANK</div></a>
-            <a href="http://localhost:8080/esport/smartg/camera"><div class="fridge card">CAMERA</div></a>
-            <a href="http://localhost:8080/esport/smartg/computer"><div class="fridge card">COMPUTER</div></a>
-            <a href="http://localhost:8080/esport/smartg/earbud"><div class="fridge card">EARBUD</div></a>
-            <a href="http://localhost:8080/esport/smartg/mobile"><div class="fridge card">MOBILE</div></a>
-            <a href="http://localhost:8080/esport/smartg/neckband"><div class="fridge card">NECK BAND</div></a>
-            <a href="http://localhost:8080/esport/smartg/smart_watch"><div class="fridge card">SMART WATCH</div></a>
-        </div>
-        </div>
-        <div class="smartg c">
-            <h4>Summer Special</h4> 
-            <img src="https://github.com/Amarendra-sahoo-mca/MajorProject-GITA/blob/main/images/summer%20special/banner.jpg?raw=true" alt="smart gadgets" class="profileImg">
-            <div class="items">
-                <a href="http://localhost:8080/esport/summer/aircooler"><div class="fridge card">AIR COOLER</div></a>
-                <a href="http://localhost:8080/esport/summer/cillingfan"><div class="fridge card">CILLING FAN</div></a>
-                <a href="http://localhost:8080/esport/summer/tablefan"><div class="fridge card">TABLE FAN</div></a>
-            </div>
-        </div>
-        <div class="smartg c">
-            <h4>Decorative</h4> 
-            <img src="https://github.com/Amarendra-sahoo-mca/MajorProject-GITA/blob/main/images/decorative/banner.jpg?raw=true" alt="smart gadgets" class="profileImg">
-            <div class="items">
-                <a href="http://localhost:8080/esport/decorative/florelamp"><div class="fridge card">FLORE LAMP</div></a>
-                <a href="http://localhost:8080/esport/decorative/jhumar"><div class="fridge card">JHUMAR</div></a>
-                <a href="http://localhost:8080/esport/decorative/walllamp"><div class="fridge card">WALL LAMP</div></a>
-            </div>
-        </div>
-    </div>
-    <footer>
-        <div class="row">
-            <div class="col">
-             <h3>Who are we? <div class="underline"><span></span></div></h3>
-           <p>Careers <br> Authenticity <br>Press <br> Testimonials <br> Espot <br> Responsible Disclosure <br> Responsible Discloure <br> Investor Relations <br> Link to Smart ODR</p> 
-           </div>
-           <div class="col">
-            <h3>HELP<div class="underline"><span></span></div></h3>
-            <p>Contact Us <br> Frequently asked questions <br> Store Locator <br>Cancellation & Return <br> Shipping & Delivery <br> Sell on Espot</p>
-        </div>
-        <div class="col">
-            <h3>INSPIRE ME<div class="underline"><span></span></div></h3>
-            <P>Espot</P>
-            <P>Electroinc Hub</P>
-            <p>Espot Tv</p>
-            <p>Espot Network</p>
-            <p>Buying Guider</p>
-    
-        </div>
-        <div class="col">
-            <h3>Links <div class="underline"><span></span></div></h3>
-            <ul>
-            <li>HOME</li>
-            <li>SERVICES</li>
-            <li>ABOUT US</li>
-            <li>FEATURES</li>
-            <li>CONTACTS</li>
-    
-            </ul>
-        </div>
-        <div class="col">
-            <h3>TOP CATEGORIES<div class="underline"><span></span></div></h3>
-            <P>Home Appliances</P>
-            <p>Kitchen Appliances</p>
-            <p>Winter Aplliances</p>
-            <p>Smarts Gadget</p>
-            <p>Summer Spical</p>
-            <p>Gift Item</p>
-        </div>
-        </div>  
-        <div class="containner">
-        <div class="shoping">
-          <div class="icon"> <i class="fa-solid fa-truck"></i></div> 
-           <div class="textt"> 
-            <h3>FREE SHIPPING</h3>
-            <P>On ordes above &#x20B9;10000</P></div>
-        </div>
-       <div class="return">
-        <div class="icons"><i class="fa-solid fa-rotate-left"></i></div>
-        <div class="textt">
-            <h3>EASY RETURNS</h3>
-            <P>10-day Return Policy</P>
-        </div>
-       </div>
-       <div class="authentic">
-        <div class="iconss"><i class="fa-solid fa-award"></i></div>
-        <div class="textt">
-            <h3>100% AUTHENTIC</h3>
-            <p>Product Sourced Directly</p>
-        </div>
-       </div>
-    </div>
-        <div class="social-icons">
-            <p>show us some &#9829; on social media</p>
-            <i class="fa-brands fa-facebook"></i>
-            <i class="fa-brands fa-instagram"></i>
-            <i class="fa-brands fa-whatsapp"></i>
-            <i class="fa-brands fa-x-twitter"></i>
-        </div>    
-        <hr>
-        <p class="copyright">Espot 2023 - All Rights Reserved </p>
-    </footer>
-<script src="indexpage.js"></script>
+    <script src="sign-Up.js"></script>
 </body>
 </html>
