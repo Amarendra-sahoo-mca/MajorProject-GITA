@@ -109,9 +109,11 @@ app.post("/esport/user/signUp", async (req,res)=>{
     console.log("sign-up sucessfull");
     console.log(user);
     userMdl=user;
+   
+    
     res.render("products/home.ejs");
 })
-
+console.log("--------->",userMdl);
 //sign-in form route
 app.get("/esport/user/signinForm",(req,res)=>{
     res.render("products/sign-in.ejs");
@@ -174,8 +176,7 @@ app.post("/esport/addnewaddress/:id", async(req,res)=>{
     await userMdl.save();
     console.log(userMdl);
     console.log("address saved sucessfully");
-    let redir="/esport/"+id+"/buyNow";
-   res.redirect(redir);
+    res.redirect(`/esport/${id}/buyNow`);
 });
 //address chosen route
 app.post("/chosen/address", async (req,res)=>{
@@ -189,12 +190,15 @@ app.post("/chosen/address", async (req,res)=>{
 app.get("/esport/cart",async(req,res)=>{
     let data=await User.findById(userMdl._id).populate("cart");
    let datas=data.cart;
-   console.log(datas);
+   console.log('-------->',datas);
     res.render("products/cart.ejs",{datas});
 })
 //address list route
 app.get("/espot/addresslist",async(req,res)=>{
+    console.log('userMdl._id----->',userMdl._id);
+    
     let data=await User.findById(userMdl._id).populate("address");
+    console.log("data-------------->",data);
     let addresses=data.address;
     console.log(addresses);
     res.render("products/addresslist.ejs",{addresses});
