@@ -79,9 +79,10 @@ app.use(express.urlencoded({extended:true}));
 app.engine('ejs',ejsMate);
 
 main().then(()=>{
-    console.log("connection establish");
+     console.log("connection establish");
+     console.log("project entry point :","http://localhost:8080/esport/user/signinForm");
 }).catch((err)=>{
-    console.log(err);
+     console.log(err);
 });
 async function main(){
     await mongose.connect('mongodb://127.0.0.1:27017/esport');
@@ -106,14 +107,14 @@ app.post("/esport/user/signUp", async (req,res)=>{
         password:userpass,
     });
     await user.save();
-    console.log("sign-up sucessfull");
-    console.log(user);
+    // console.log("sign-up sucessfull");
+    // console.log(user);
     userMdl=user;
    
     
     res.render("products/home.ejs");
 })
-console.log("--------->",userMdl);
+
 //sign-in form route
 app.get("/esport/user/signinForm",(req,res)=>{
     res.render("products/sign-in.ejs");
@@ -123,13 +124,13 @@ app.post("/esport/user/signin",async (req,res)=>{
     let {uemail,userpass}=req.body;
     let data= await User.findOne({email:uemail});
     if(data==null || data.password!=userpass){
-        console.log("invalid username or password");
+        // console.log("invalid username or password");
         res.redirect("/esport/user/signinForm");
     }
     else{
-        console.log("log-In sucessfull");
+        // console.log("log-In sucessfull");
         userMdl=data;
-        console.log(userMdl);
+        // console.log(userMdl);
         res.render("products/home.ejs");
     }
 })
@@ -153,7 +154,7 @@ app.patch("/esport/updatePassword/:id",async(req,res)=>{
     // let password=req.body;
     let data=await User.findById(id);
     data.password=req.body.password;
-     console.log(data.password);
+     // console.log(data.password);
      data.save();
      res.send("password updated successfully");
 })
@@ -171,11 +172,11 @@ app.post("/esport/addnewaddress/:id", async(req,res)=>{
         area: landmark
     });
     await newAddress.save();
-    console.log(user);
+    // console.log(user);
     userMdl.address.push(newAddress);
     await userMdl.save();
-    console.log(userMdl);
-    console.log("address saved sucessfully");
+    // console.log(userMdl);
+    // console.log("address saved sucessfully");
     res.redirect(`/esport/${id}/buyNow`);
 });
 //address chosen route
@@ -190,17 +191,17 @@ app.post("/chosen/address", async (req,res)=>{
 app.get("/esport/cart",async(req,res)=>{
     let data=await User.findById(userMdl._id).populate("cart");
    let datas=data.cart;
-   console.log('-------->',datas);
+   // console.log('-------->',datas);
     res.render("products/cart.ejs",{datas});
 })
 //address list route
-app.get("/espot/addresslist",async(req,res)=>{
-    console.log('userMdl._id----->',userMdl._id);
+app.get("/Esport/addresslist",async(req,res)=>{
+    // console.log('userMdl._id----->',userMdl._id);
     
     let data=await User.findById(userMdl._id).populate("address");
-    console.log("data-------------->",data);
+    // console.log("data-------------->",data);
     let addresses=data.address;
-    console.log(addresses);
+    // console.log(addresses);
     res.render("products/addresslist.ejs",{addresses});
 })
 
@@ -208,7 +209,7 @@ app.get("/espot/addresslist",async(req,res)=>{
 app.get("/user/profile", async(req,res)=>{
     let data=await User.findById(userMdl._id).populate("orders");
     let orders=data.orders;
-    console.log(orders);
+    // console.log(orders);
     res.render("products/userProfile.ejs", {data,orders});
 });
 
@@ -243,15 +244,15 @@ app.get("/esport/:id/cart", async (req,res)=>{
     await cart1.save();
     userMdl.cart.push(cart1);
     await userMdl.save();
-    console.log(userMdl);
-    console.log("added to cart sucessfully");
+    // console.log(userMdl);
+    // console.log("added to cart sucessfully");
 });
 
 //romove from cart route
 app.delete("/esport/:id", async(req,res)=>{
     let {id}=req.params;
     await Cart.deleteOne({_id:id});
-    console.log("deleted from cart sucessfully");
+    // console.log("deleted from cart sucessfully");
     res.redirect("/esport/cart");
 });
 //product profile Route
@@ -309,7 +310,7 @@ app.post("/orders/payments", async(req,res)=>{
     let {quantity,pid}=req.body;
     orderQty=quantity;
     orderid=pid;
-    //console.log(typeof(quantity));
+    //// console.log(typeof(quantity));
     for(model of models){
         var data=await model.findById(pid); 
         if(data!=null){
@@ -391,8 +392,8 @@ app.post("/order/save", async (req,res)=>{
     await order.save();
     userMdl.orders.push(order);
     await userMdl.save();
-    console.log(userMdl);
-    console.log("order saved");
+    // console.log(userMdl);
+    // console.log("order saved");
     res.render("products/goodbye.ejs");
 })
 //home Appliances
@@ -565,7 +566,7 @@ app.get("/esport/summer/tablefan",async(req,res)=>{
   });
 
 app.listen(port,()=>{
-    console.log(`listeninh at port :${port}`);
+    // console.log(`listeninh at port :${port}`);
 })
 //decorative
 //florelamp data RouTE
