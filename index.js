@@ -280,7 +280,12 @@ app.get("/esport/:id/buyNow", async (req,res)=>{
             break;
         }  
     }
-    let address= userMdl.address;
+    const address = await Promise.all(
+        userMdl.address.map(async (item) => {
+          return await Address.findOne({ _id: item });
+        })
+      );
+    
     res.render("products/buynow.ejs",{data,address});
 });
 //after err buy now route
